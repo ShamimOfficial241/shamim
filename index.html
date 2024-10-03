@@ -1,0 +1,1857 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Neon Card View with Search</title>
+  <style>
+    /* General body styling */
+    body {
+      background-color: #0d0d0d;
+      font-family: 'Arial', sans-serif;
+      padding: 20px;
+      color: black;
+    }
+
+    /* Search bar styling */
+    .search-container {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .search-bar {
+      width: 60%;
+      padding: 10px;
+      border-radius: 20px;
+      border: 2px solid #00ff6c;
+      font-size: 16px;
+    }
+
+    /* Card container */
+    .card-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    /* Card styling */
+    .card {
+      padding: 20px;
+      border-radius: 15px;
+      background: linear-gradient(145deg, #00ff6c, #0066ff);
+      box-shadow: 0 0 20px rgba(0, 255, 108, 0.5),
+                  0 0 40px rgba(0, 102, 255, 0.5),
+                  0 0 60px rgba(0, 250, 255, 0.3);
+      color: black;
+      text-align: center;
+      transition: transform 0.3s ease;
+      position: relative;
+    }
+
+    /* 3D hover effect */
+    .card:hover {
+      transform: translateY(-10px) scale(1.05);
+      box-shadow: 0 0 30px rgba(0, 255, 108, 0.6),
+                  0 0 50px rgba(0, 102, 255, 0.6),
+                  0 0 70px rgba(0, 250, 255, 0.5);
+    }
+
+    /* Card title */
+    .card h3 {
+      font-size: 22px;
+      margin: 10px 0;
+    }
+
+    /* Contact details */
+    .card p {
+      font-size: 16px;
+      line-height: 1.4;
+      margin: 8px 0;
+    }
+
+    /* Neon outline for mobile number */
+    .neon {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 5px 10px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 255, 108, 0.5), 
+                  0 0 20px rgba(0, 102, 255, 0.4),
+                  0 0 40px rgba(0, 250, 255, 0.3);
+      color: black; /* Change number font color to black */
+    }
+
+    /* Extra styling for multi-line mobile numbers */
+    .multiline {
+      white-space: pre-line;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Search bar -->
+  <div class="search-container">
+    <input type="text" id="search-bar" class="search-bar" onkeyup="searchNames()" placeholder="Search by name...">
+  </div>
+
+  <!-- Card container -->
+  <div class="card-container" id="card-container">
+
+   
+<!-- Card 27 -->
+<div class="card" data-name="Mr. Aminul Islam">
+  <h3>Mr. Aminul Islam</h3>
+  <p>Technical Officer (Mechanical)</p>
+  <p class="neon multiline">01744623774<br>Ext. 290</p>
+</div>
+
+<!-- Card 26 -->
+<div class="card" data-name="Prof. Dr. Goutam Buddha Das">
+  <h3>Prof. Dr. Goutam Buddha Das</h3>
+  <p>Vice-Chancellor</p>
+  <p class="neon multiline">02334466083 (Home)</p>
+</div>
+
+<!-- Card 27 -->
+<div class="card" data-name="Prof. Dr. Mohammad Alamgir Hossain">
+  <h3>Prof. Dr. Mohammad Alamgir Hossain</h3>
+  <p>Dean</p>
+  <p class="neon multiline">01716955987<br>02334466212</p>
+</div>
+
+<!-- Card 28 -->
+<div class="card" data-name="Prof. Dr. Goutam Buddha Das">
+  <h3>Prof. Dr. Goutam Buddha Das</h3>
+  <p>Dean</p>
+  <p class="neon multiline">02334466214<br>Ext. 121</p>
+</div>
+
+<!-- Card 29 -->
+<div class="card" data-name="Prof. Dr. M. Nurul Absar Khan">
+  <h3>Prof. Dr. M. Nurul Absar Khan</h3>
+  <p>Dean</p>
+  <p class="neon multiline">01675000357<br>02334466210<br>Ext. 116</p>
+</div>
+
+<!-- Card 30 -->
+<div class="card" data-name="Prof. Dr. Himel Barua">
+  <h3>Prof. Dr. Himel Barua</h3>
+  <p>Director</p>
+  <p class="neon multiline">01715297642<br>02334466152<br>Ext. 131</p>
+</div>
+
+<!-- Card 31 -->
+<div class="card" data-name="Prof. Dr. Sharmin Chowdhruy">
+  <h3>Prof. Dr. Sharmin Chowdhruy</h3>
+  <p>Director</p>
+  <p class="neon multiline">01554331355<br>02334466540<br>Ext. 306</p>
+</div>
+
+<!-- Card 32 -->
+<div class="card" data-name="Prof. Dr. M. Nurul Absar Khan">
+  <h3>Prof. Dr. M. Nurul Absar Khan</h3>
+  <p>Director (Addl. Charge)</p>
+  <p class="neon multiline">01675000357<br>Ext. 116</p>
+</div>
+
+<div class="card" data-name="Mr. Mohammad Jamal Hossain">
+  <h3>Mr. Mohammad Jamal Hossain</h3>
+  <p>Assistant Librarian</p>
+  <p class="neon multiline">01710842753<br>(Ext. 207)</p>
+</div>
+
+<div class="card" data-name="Mr. Mohammad Salah Uddin">
+  <h3>Mr. Mohammad Salah Uddin</h3>
+  <p>Senior Technical Officer</p>
+  <p class="neon multiline">01819612868<br>(Ext. 438)</p>
+</div>
+
+<div class="card" data-name="Mr. Mohammad Jalal Uddin">
+  <h3>Mr. Mohammad Jalal Uddin</h3>
+  <p>Senior Technical Officer</p>
+  <p class="neon multiline">01814239353<br>(Ext. 524)</p>
+</div>
+
+<div class="card" data-name="Mr. Mohammad Rafiqul Islam">
+  <h3>Mr. Mohammad Rafiqul Islam</h3>
+  <p>Senior Technical Officer</p>
+  <p class="neon multiline">1718684326</p>
+</div>
+
+<div class="card" data-name="Mr. Md. Bayezid Hasan Dhali">
+  <h3>Mr. Md. Bayezid Hasan Dhali</h3>
+  <p>Senior Technical Officer</p>
+  <p class="neon multiline">01815639358<br>(Ext. 356)</p>
+</div>
+
+<div class="card" data-name="Mr. Md. Khorshed Alam">
+  <h3>Mr. Md. Khorshed Alam</h3>
+  <p>Senior Technical Officer</p>
+  <p class="neon multiline">01819632096<br>(Ext. 398)</p>
+</div>
+
+<div class="card" data-name="Mr. Md. Aktar Faruk">
+  <h3>Mr. Md. Aktar Faruk</h3>
+  <p>Senior Technical Officer</p>
+  <p class="neon multiline">1710483512</p>
+</div>
+
+<div class="card" data-name="Mr. Monjour Alam">
+  <h3>Mr. Monjour Alam</h3>
+  <p>Senior Technical Officer</p>
+  <p class="neon multiline">01813670024<br>(Ext. 415)</p>
+</div>
+
+<div class="card" data-name="Mr. Md. Mamun Sikder">
+  <h3>Mr. Md. Mamun Sikder</h3>
+  <p>Assistant Computer Programmer</p>
+  <p class="neon multiline">01738203209<br>(Ext. 199)</p>
+</div>
+
+<div class="card" data-name="Mr. Nasim Ahmed">
+  <h3>Mr. Nasim Ahmed</h3>
+  <p>Assistant Network Engineer</p>
+  <p class="neon multiline">01991953330<br>(Ext. 200)</p>
+</div>
+
+<div class="card" data-name="Mr. Md. Mahshin Mia">
+  <h3>Mr. Md. Mahshin Mia</h3>
+  <p>Assistant Controller of Examinations</p>
+  <p class="neon multiline">01816448522<br>(Ext. 178)</p>
+</div>
+
+<div class="card" data-name="Mr. Md. Alamgir Monsur">
+  <h3>Mr. Md. Alamgir Monsur</h3>
+  <p>Assistant Engineer (Civil)</p>
+  <p class="neon multiline">01712505798<br>(Ext. 225)</p>
+</div>
+
+<div class="card" data-name="Mr. Md. Amir Ullah Hriday">
+  <h3>Mr. Md. Amir Ullah Hriday</h3>
+  <p>Assistant Engineer (Civil)</p>
+  <p class="neon multiline">01866696220<br>01883823272<br>(Ext. 226)</p>
+</div>
+
+<div class="card" data-name="Mr. Mohammad Golam Maola">
+  <h3>Mr. Mohammad Golam Maola</h3>
+  <p>Physical Instructor</p>
+  <p class="neon multiline">01816664621<br>01991956150<br>(Ext. 247)</p>
+</div>
+
+<div class="card" data-name="DR. Mir Md. Afzal Hossain">
+  <h3>DR. Mir Md. Afzal Hossain</h3>
+  <p>Veterinary Surgeon</p>
+  <p class="neon multiline">1831524422</p>
+</div>
+
+<div class="card" data-name="Mr. Razib Datta">
+  <h3>Mr. Razib Datta</h3>
+  <p>Accounts Officer (Audit)</p>
+  <p class="neon multiline">01914601923<br>(Ext. 190)</p>
+</div>
+
+<div class="card" data-name="Mr. Sudip Chanda">
+  <h3>Mr. Sudip Chanda</h3>
+  <p>Accounts Officer</p>
+  <p class="neon multiline">1711315208</p>
+</div>
+
+<div class="card" data-name="Mr. Nahid Mahmud">
+  <h3>Mr. Nahid Mahmud</h3>
+  <p>Security Officer</p>
+  <p class="neon multiline">1819355605</p>
+</div>
+
+<div class="card" data-name="Ms. Aditi Dey Mau">
+  <h3>Ms. Aditi Dey Mau</h3>
+  <p>Manager (IQAC)</p>
+  <p class="neon multiline">1681662338</p>
+</div>
+
+<div class="card" data-name="Mr. Md. Jashim Uddin (Khokan)">
+  <h3>Mr. Md. Jashim Uddin (Khokan)</h3>
+  <p>Section Officer & PS to VC (Add. Charge)</p>
+  <p class="neon multiline">01815647924<br>(Ext. 103)</p>
+</div>
+
+<div class="card" data-name="Mr. Mukul Kanti Dhar">
+  <h3>Mr. Mukul Kanti Dhar</h3>
+  <p>Technical Officer</p>
+  <p class="neon multiline">1812432163</p>
+</div>
+
+<div class="card" data-name="Mr. Md. Iqbal Hossain">
+  <h3>Mr. Md. Iqbal Hossain</h3>
+  <p>Technical Officer</p>
+  <p class="neon multiline">1837019740</p>
+</div>
+
+<div class="card" data-name="Mr. Kazi Md. Rokon Uddin">
+  <h3>Mr. Kazi Md. Rokon Uddin</h3>
+  <p>Technical Officer</p>
+  <p class="neon multiline">01818-827464</p>
+</div>
+
+<div class="card" data-name="Ms. Sarmin Sultana">
+  <h3>Ms. Sarmin Sultana</h3>
+  <p>Technical Officer</p>
+  <p class="neon multiline">1816447093</p>
+</div>
+
+<div class="card" data-name="Mr. A.N.M. Jahid Hasan">
+  <h3>Mr. A.N.M. Jahid Hasan</h3>
+  <p>Technical Officer</p>
+  <p class="neon multiline">1725879785</p>
+</div>
+
+<div class="card" data-name="Mr. S.M Ziaul Hoque">
+  <h3>Mr. S.M Ziaul Hoque</h3>
+  <p>Technical Officer</p>
+  <p class="neon multiline">1812286729</p>
+</div>
+
+<div class="card" data-name="Ms. Supriya Biswas">
+  <h3>Ms. Supriya Biswas</h3>
+  <p>Technical Officer</p>
+  <p class="neon multiline">1811612804</p>
+</div>
+
+<div class="card" data-name="Mr. Shiddarta Sankar Chowdhury">
+  <h3>Mr. Shiddarta Sankar Chowdhury</h3>
+  <p>Technical Officer</p>
+  <p class="neon multiline">1571740185</p>
+</div>
+
+<div class="card" data-name="Mr. Md. Solaiman Hossain">
+  <h3>Mr. Md. Solaiman Hossain</h3>
+  <p>Section Officer (Store)</p>
+  <p class="neon multiline">01721119050<br>(Ext. 166)</p>
+</div>
+
+<div class="card" data-name="Mr. Md. Omar Faruk">
+  <h3>Mr. Md. Omar Faruk</h3>
+  <p>Section Officer (Photography)</p>
+  <p class="neon multiline">01719139839<br>(Ext. 107)</p>
+</div>
+<div class="card" data-name="Meher Nahid">
+  <h3>Meher Nahid</h3>
+  <p>Lecturer</p>
+  <p class="neon multiline">01715-245967</p>
+</div>
+
+<div class="card" data-name="Nahidur Rahman">
+  <h3>Nahidur Rahman</h3>
+  <p>Lecturer</p>
+  <p class="neon multiline">01795 496578</p>
+</div>
+
+<div class="card" data-name="Mr. Md. Iqbal Hossain">
+  <h3>Mr. Md. Iqbal Hossain</h3>
+  <p>Technical Officer</p>
+  <p class="neon multiline">1837019740</p>
+</div>
+
+<!-- Card 33 -->
+<div class="card" data-name="Dr. Abdul Mannan">
+  <h3>Dr. Abdul Mannan</h3>
+  <p>Director (In-Charge)</p>
+  <p class="neon multiline">1814362649</p>
+</div>
+
+<!-- Card 34 -->
+<div class="card" data-name="Engr. Koushik Nandi">
+  <h3>Engr. Koushik Nandi</h3>
+  <p>Project Director</p>
+  <p class="neon multiline">01670904222<br>Ext. 223</p>
+</div>
+
+<!-- Card 35 -->
+<div class="card" data-name="Prof. Dr. M. Nurul Absar Khan">
+  <h3>Prof. Dr. M. Nurul Absar Khan</h3>
+  <p>Co-ordinator (Addl. Charge)</p>
+  <p class="neon multiline">01675000357<br>Ext. 116</p>
+</div>
+
+<!-- Card 36 -->
+<div class="card" data-name="Prof. Dr. Goutam Buddha Das">
+  <h3>Prof. Dr. Goutam Buddha Das</h3>
+  <p>Director (In-Charge)</p>
+  <p class="neon multiline">2334466154</p>
+</div>
+
+<!-- Card 37 -->
+<div class="card" data-name="Prof. Dr. A.K.M Saifuddin">
+  <h3>Prof. Dr. A.K.M Saifuddin</h3>
+  <p>Director</p>
+  <p class="neon multiline">01813309788<br>02334466213<br>Ext. 326</p>
+</div>
+
+<!-- Card 38 -->
+<div class="card" data-name="Prof. Dr. Md. Ashraf Ali Biswas">
+  <h3>Prof. Dr. Md. Ashraf Ali Biswas</h3>
+  <p>Director</p>
+  <p class="neon multiline">01768046768<br>02334466224<br>Ext. 331</p>
+</div>
+
+<!-- Card 39 -->
+<div class="card" data-name="Prof. Dr. Md. Rayhan Faruque">
+  <h3>Prof. DR. Md. Rayhan Faruque</h3>
+  <p>Director</p>
+  <p class="neon multiline">01711036361<br>02334466402<br>Ext. 146</p>
+</div>
+
+<!-- Card 40 -->
+<div class="card" data-name="Prof. DR. Omar Faruk Miazi">
+  <h3>Prof. DR. Omar Faruk Miazi</h3>
+  <p>Director</p>
+  <p class="neon multiline">01716405111<br>02334466232<br>Ext. 321</p>
+</div>
+
+<!-- Card 41 -->
+<div class="card" data-name="Prof. Dr. Gous Miah">
+  <h3>Prof. Dr. Gous Miah</h3>
+  <p>Director</p>
+  <p class="neon multiline">01767944355<br>02334466052<br>Ext. 367</p>
+</div>
+
+<!-- Card 42 -->
+<div class="card" data-name="Md. Kauser-Ul-Alam">
+  <h3>Md. Kauser-Ul-Alam</h3>
+  <p>Addl. Director</p>
+  <p class="neon multiline">01722486460<br>Ext. 508</p>
+</div>
+
+<!-- Card 43 -->
+<div class="card" data-name="DR. Saiful Bari">
+  <h3>DR. Saiful Bari</h3>
+  <p>Director</p>
+  <p class="neon multiline">01918398940<br>Ext. 316</p>
+</div>
+
+<!-- Card 44 -->
+<div class="card" data-name="Prof. Dr. AMAM Zonaed Siddiki">
+  <h3>Prof. Dr. AMAM Zonaed Siddiki</h3>
+  <p>Co-ordinator</p>
+  <p class="neon multiline">01717718884<br>Ext. 336</p>
+</div>
+
+<!-- Card 45 -->
+<div class="card" data-name="Mr. Mirza Faruk Imam">
+  <h3>Mr. Mirza Faruk Imam</h3>
+  <p>Registrar</p>
+  <p class="neon multiline">01731113838<br>02334466270 (Fax)<br>Ext. 161</p>
+</div>
+
+<!-- Card 46 -->
+<div class="card" data-name="Dr. Md. Abdul Alim">
+  <h3>Dr. Md. Abdul Alim</h3>
+  <p>Transport (In-Charge)</p>
+  <p class="neon multiline">01712288554<br>Ext. 341</p>
+</div>
+
+<!-- Card 47 -->
+<div class="card" data-name="Dr. Kh. Nurul Islam">
+  <h3>Dr. Kh. Nurul Islam</h3>
+  <p>Professor (Head)</p>
+  <p class="neon multiline">01986766569<br>(Head. Ext. 346)</p>
+</div>
+
+<!-- Card 48 -->
+<div class="card" data-name="Dr. S. K. M. Azizul Islam">
+  <h3>Dr. S. K. M. Azizul Islam</h3>
+  <p>Professor (Head)</p>
+  <p class="neon multiline">1912511289</p>
+</div>
+
+<!-- Card 49 -->
+<div class="card" data-name="Dr. Jannatara Khatun">
+  <h3>Dr. Jannatara Khatun</h3>
+  <p>Professor (Head)</p>
+  <p class="neon multiline">1753216358</p>
+</div>
+
+<!-- Card 50 -->
+<div class="card" data-name="Dr. Abdul Ahad">
+  <h3>Dr. Abdul Ahad</h3>
+  <p>Professor (Head)</p>
+  <p class="neon multiline">1552456759</p>
+</div>
+
+<!-- Card 51 -->
+<div class="card" data-name="Dr. Mohammad Mahbubur Rahman">
+  <h3>Dr. Mohammad Mahbubur Rahman</h3>
+  <p>Professor (Head)</p>
+  <p class="neon multiline">1711904713</p>
+</div>
+
+<!-- Card 52 -->
+<div class="card" data-name="Dr. Ashutosh Das">
+  <h3>Dr. Ashutosh Das</h3>
+  <p>Professor (Head)</p>
+  <p class="neon multiline">01675725800<br>(Head. Ext. 446)</p>
+</div>
+
+<!-- Card 53 -->
+<div class="card" data-name="Dr. Mohammad Abul Hossain">
+  <h3>Dr. Mohammad Abul Hossain</h3>
+  <p>Professor (Head)</p>
+  <p class="neon multiline">01780067632<br>(Head. Ext. 466)</p>
+</div>
+
+<!-- Card 54 -->
+<div class="card" data-name="Meherunnesa Chowdhury Sumy">
+  <h3>Meherunnesa Chowdhury Sumy</h3>
+  <p>Professor (Head)</p>
+  <p class="neon multiline">01712560028<br>(Head. Ext. 486)</p>
+</div>
+
+<!-- Card 55 -->
+<div class="card" data-name="Dr. Azizunnesa">
+  <h3>Dr. Azizunnesa</h3>
+  <p>Professor (Head)</p>
+  <p class="neon multiline">01925162330<br>(Head. Ext. 506)</p>
+</div>
+
+<!-- Faculty Member Cards -->
+<div class="card" data-name="Dr. Indrajit Saha">
+  <h3>Dr. Indrajit Saha</h3>
+  <p>Associate Professor (Head)</p>
+  <p class="neon multiline">01974869795<br>(Head. Ext. 546)</p>
+</div>
+
+<div class="card" data-name="Dr. Shamsul Morshed">
+  <h3>Dr. Shamsul Morshed</h3>
+  <p>Associate Professor (Head)</p>
+  <p class="neon multiline">01967487502<br>(Head. Ext. 566)</p>
+</div>
+
+<div class="card" data-name="Kazi Nazira Sharmin">
+  <h3>Kazi Nazira Sharmin</h3>
+  <p>Associate Professor (Head)</p>
+  <p class="neon multiline">01879235682<br>(Head. Ext. 586)</p>
+</div>
+
+<div class="card" data-name="Ms. Shireen Akther">
+  <h3>Ms. Shireen Akther</h3>
+  <p>Associate Professor (Head)</p>
+  <p class="neon multiline">01711957254<br>(Head. Ext. 606)</p>
+</div>
+
+<div class="card" data-name="Dr. Md. Mahiuddin Zahangir">
+  <h3>Dr. Md. Mahiuddin Zahangir</h3>
+  <p>Associate Professor (Head)</p>
+  <p class="neon multiline">01722788370<br>(Head. Ext. 646)</p>
+</div>
+
+<div class="card" data-name="Dr. Helena Khatoon">
+  <h3>Dr. Helena Khatoon</h3>
+  <p>Assistant Professor (Head)</p>
+  <p class="neon multiline">01716396008<br>(Head. Ext. 666)</p>
+</div>
+
+<div class="card" data-name="Dr. Mohammad Sadequr Rahman Khan">
+  <h3>Dr. Mohammad Sadequr Rahman Khan</h3>
+  <p>Associate Professor (Head)</p>
+  <p class="neon multiline">01723229101<br>(Head. Ext. 686)</p>
+</div>
+
+<div class="card" data-name="Dr. Sk. Ahmed-Al-Nahid">
+  <h3>Dr. Sk. Ahmed-Al-Nahid</h3>
+  <p>Associate Professor (Head)</p>
+  <p class="neon multiline">01712505698<br>(Head. Ext. 706)</p>
+</div>
+
+<div class="card" data-name="Dr. Md. Faisal">
+  <h3>Dr. Md. Faisal</h3>
+  <p>Associate Professor (Head)</p>
+  <p class="neon multiline">01719002289<br>(Head. Ext. 720)</p>
+</div>
+
+<div class="card" data-name="Dr. Kh. Nurul Islam">
+  <h3>Dr. Kh. Nurul Islam</h3>
+  <p>Professor</p>
+  <p class="neon multiline">01986766569<br>(Ext. 347)</p>
+</div>
+
+<div class="card" data-name="Dr. Mohammad Lutfur Rahman">
+  <h3>Dr. Mohammad Lutfur Rahman</h3>
+  <p>Professor</p>
+  <p class="neon multiline">01726842715<br>(Ext. 348)</p>
+</div>
+
+<div class="card" data-name="Dr. A.S.M Lutful Ahasan">
+  <h3>Dr. A.S.M Lutful Ahasan</h3>
+  <p>Professor</p>
+  <p class="neon multiline">01819821760<br>01711272196<br>(Ext. 349)</p>
+</div>
+
+<div class="card" data-name="Dr. Mohammad Mejbah Uddin">
+  <h3>Dr. Mohammad Mejbah Uddin</h3>
+  <p>Professor</p>
+  <p class="neon multiline">01721020665<br>(Ext. 350)</p>
+</div>
+
+<div class="card" data-name="Dr. A.S.M Golam Kibria">
+  <h3>Dr. A.S.M Golam Kibria</h3>
+  <p>Professor</p>
+  <p class="neon multiline">01918230481<br>(Ext. 351)</p>
+</div>
+
+<div class="card" data-name="Dr. A.K.M Saifuddin">
+  <h3>Dr. A.K.M Saifuddin</h3>
+  <p>Professor</p>
+  <p class="neon multiline">01813309788<br>(Ext. 367)</p>
+</div>
+
+<div class="card" data-name="Dr. Mohammad Rashedul Alam">
+  <h3>Dr. Mohammad Rashedul Alam</h3>
+  <p>Professor</p>
+  <p class="neon multiline">01819336142<br>(Ext. 368)</p>
+</div>
+
+<div class="card" data-name="Dr. Mohammad Belayet Hossain">
+  <h3>Dr. Mohammad Belayet Hossain</h3>
+  <p>Professor</p>
+  <p class="neon multiline">01937164422<br>(Ext. 369)</p>
+</div>
+
+<div class="card" data-name="Dr. S.K.M Azizul Islam">
+  <h3>Dr. S.K.M Azizul Islam</h3>
+  <p>Professor</p>
+  <p class="neon multiline">01912511289<br>(Ext. 370)</p>
+</div>
+
+<div class="card" data-name="Dr. Mohammad Mahmudul Hassan">
+  <h3>Dr. Mohammad Mahmudul Hassan</h3>
+  <p>Professor</p>
+  <p class="neon multiline">01554326951<br>(Ext. 371)</p>
+</div>
+
+<div class="card" data-name="Dr. Shahneaz Ali Khan">
+  <h3>Dr. Shahneaz Ali Khan</h3>
+  <p>Professor</p>
+  <p class="neon multiline">01190476563<br>(Ext. 372)</p>
+</div>
+
+<div class="card" data-name="Dr. Goutam Buddha Das">
+  <h3>Dr. Goutam Buddha Das</h3>
+  <p>Professor</p>
+  <p class="neon multiline">01796257797<br>(Ext. 387)</p>
+</div>
+
+<div class="card" data-name="Dr. Jannatara Khatun">
+  <h3>Dr. Jannatara Khatun</h3>
+  <p>Professor</p>
+  <p class="neon multiline">01711232394<br>(Ext. 388)</p>
+</div>
+
+<div class="card" data-name="Dr. Md. Ashraf Ali Biswas">
+  <h3>Dr. Md. Ashraf Ali Biswas</h3>
+  <p>Professor</p>
+  <p class="neon multiline">01195098971<br>(Ext. 389)</p>
+</div>
+
+<div class="card" data-name="Dr. Md. Manirul Islam">
+  <h3>Dr. Md. Manirul Islam</h3>
+  <p>Professor</p>
+  <p class="neon multiline">01712736518<br>(Ext. 392)</p>
+</div>
+
+<div class="card" data-name="Dr. Md. Emran Hossain">
+  <h3>Dr. Md. Emran Hossain</h3>
+  <p>Professor</p>
+  <p class="neon multiline">01720693066<br>(Ext. 391)</p>
+</div>
+
+<div class="card" data-name="Dr. Paritosh Kumar Biswas">
+  <h3>Dr. Paritosh Kumar Biswas</h3>
+  <p>Professor</p>
+  <p class="neon multiline">01718318926<br>(Ext. 408)</p>
+</div>
+
+<div class="card" data-name="Dr. Abdul Ahad">
+  <h3>Dr. Abdul Ahad</h3>
+  <p>Professor</p>
+  <p class="neon multiline">01552456759<br>(Ext. 409)</p>
+</div>
+
+<div class="card" data-name="Dr. Himel Barua">
+  <h3>Dr. Himel Barua</h3>
+  <p>Professor</p>
+  <p class="neon multiline">01715297642<br>(Ext. 410)</p>
+</div>
+
+<div class="card" data-name="Dr. Md. Masuduzzaman">
+  <h3>Dr. Md. Masuduzzaman</h3>
+  <p>Professor</p>
+  <p class="neon multiline">01711810351<br>(Ext. 427)</p>
+</div>
+<!-- Card 1 -->
+<div class="card" data-name="Dr. Mohammad Alamgir Hossain">
+  <h3>Dr. Mohammad Alamgir Hossain</h3>
+  <p>Professor</p>
+  <p class="neon multiline">01716955987<br>(Ext. 428)</p>
+</div>
+
+<!-- Card 2 -->
+<div class="card" data-name="Dr. AMAM Zonaed Siddiki">
+  <h3>Dr. AMAM Zonaed Siddiki</h3>
+  <p>Professor</p>
+  <p class="neon multiline">01717718884<br>(Ext. 429)</p>
+</div>
+
+<!-- Card 3 -->
+<div class="card" data-name="Dr. Mohammad Mahbubur Rahman">
+  <h3>Dr. Mohammad Mahbubur Rahman</h3>
+  <p>Professor</p>
+  <p class="neon multiline">01711904713<br>(Ext. 430)</p>
+</div>
+
+<!-- Card 4 -->
+<div class="card" data-name="Dr. Sharmin Chowdhruy">
+  <h3>Dr. Sharmin Chowdhruy</h3>
+  <p>Professor</p>
+  <p class="neon multiline">01554331355<br>(Ext. 432)</p>
+</div>
+
+<!-- Card 5 -->
+<div class="card" data-name="Dr. Md. Kabirul Islam Khan">
+  <h3>Dr. Md. Kabirul Islam Khan</h3>
+  <p>Professor</p>
+  <p class="neon multiline">01732986741<br>(Ext. 447)</p>
+</div>
+
+<!-- Card 6 -->
+<div class="card" data-name="Dr. Gous Miah">
+  <h3>Dr. Gous Miah</h3>
+  <p>Professor</p>
+  <p class="neon multiline">01799773466<br>(Ext. 448)</p>
+</div>
+
+<!-- Card 7 -->
+<div class="card" data-name="Dr. Omar Faruk Miazi">
+  <h3>Dr. Omar Faruk Miazi</h3>
+  <p>Professor</p>
+  <p class="neon multiline">01716405111<br>(Ext. 449)</p>
+</div>
+
+<!-- Card 8 -->
+<div class="card" data-name="Dr. Ashutosh Das">
+  <h3>Dr. Ashutosh Das</h3>
+  <p>Professor</p>
+  <p class="neon multiline">01675725800<br>(Ext. 450)</p>
+</div>
+
+<!-- Card 9 -->
+<div class="card" data-name="Mr. Goutam Kumar Debnath">
+  <h3>Mr. Goutam Kumar Debnath</h3>
+  <p>Professor</p>
+  <p class="neon multiline">01711078853<br>(Ext. 468)</p>
+</div>
+
+<!-- Card 10 -->
+<div class="card" data-name="Dr. A.K.M Humayun Kober">
+  <h3>Dr. A.K.M Humayun Kober</h3>
+  <p>Professor</p>
+  <p class="neon multiline">01712164794<br>(Ext. 469)</p>
+</div>
+
+<!-- Card 11 -->
+<div class="card" data-name="Mr. Md. Akhtar-Uz-Zaman">
+  <h3>Mr. Md. Akhtar-Uz-Zaman</h3>
+  <p>Professor</p>
+  <p class="neon multiline">01912505340<br>(Ext. 470)</p>
+</div>
+
+<!-- Card 12 -->
+<div class="card" data-name="Dr. Mohammad Abul Hossain">
+  <h3>Dr. Mohammad Abul Hossain</h3>
+  <p>Professor</p>
+  <p class="neon multiline">01780067632<br>(Ext. 471)</p>
+</div>
+
+<!-- Card 13 -->
+<div class="card" data-name="Mr. Md. A. Halim">
+  <h3>Mr. Md. A. Halim</h3>
+  <p>Professor</p>
+  <p class="neon multiline">01554324509<br>(Ext. 487)</p>
+</div>
+
+<!-- Card 14 -->
+<div class="card" data-name="Ms. Shahnaz Sultana">
+  <h3>Ms. Shahnaz Sultana</h3>
+  <p>Professor</p>
+  <p class="neon multiline">01819859815<br>(Head. Ext. 486)</p>
+</div>
+
+<!-- Card 15 -->
+<div class="card" data-name="Ms. Meherunnesa Chowdhury Sumy">
+  <h3>Ms. Meherunnesa Chowdhury Sumy</h3>
+  <p>Professor</p>
+  <p class="neon multiline">01712560028<br>(Ext. 489)</p>
+</div>
+
+<!-- Card 16 -->
+<div class="card" data-name="Dr. Md. Ahasanul Hoque">
+  <h3>Dr. Md. Ahasanul Hoque</h3>
+  <p>Professor</p>
+  <p class="neon multiline">01757796866<br>(Ext. 507)</p>
+</div>
+
+<!-- Card 17 -->
+<div class="card" data-name="Dr. Md. Rayhan Faruque">
+  <h3>Dr. Md. Rayhan Faruque</h3>
+  <p>Professor</p>
+  <p class="neon multiline">01797584829<br>01711036361<br>(Ext. 508)</p>
+</div>
+
+<!-- Card 18 -->
+<div class="card" data-name="Dr. Bibek Chanda Sutradhar">
+  <h3>Dr. Bibek Chanda Sutradhar</h3>
+  <p>Professor</p>
+  <p class="neon multiline">01711057533<br>(Ext. 509)</p>
+</div>
+
+<!-- Card 19 -->
+<div class="card" data-name="Dr. Md. Mizanur Rahman">
+  <h3>Dr. Md. Mizanur Rahman</h3>
+  <p>Professor</p>
+  <p class="neon multiline">01743831696<br>(Ext. 510)</p>
+</div>
+
+<!-- Card 20 -->
+<div class="card" data-name="Dr. Bhajan Chandra Das">
+  <h3>Dr. Bhajan Chandra Das</h3>
+  <p>Professor</p>
+  <p class="neon multiline">01930370731<br>(Ext. 511)</p>
+</div>
+
+<!-- Card 21 -->
+<div class="card" data-name="Dr. Yousuf Elahi Chowdhury">
+  <h3>Dr. Yousuf Elahi Chowdhury</h3>
+  <p>Professor</p>
+  <p class="neon multiline">01742103038<br>(Ext. 513)</p>
+</div>
+
+<!-- Card 22 -->
+<div class="card" data-name="Dr. Azizunnesa">
+  <h3>Dr. Azizunnesa</h3>
+  <p>Professor</p>
+  <p class="neon multiline">01716955099<br>01925162330<br>(Ext. 512)</p>
+</div>
+
+<!-- Card 23 -->
+<div class="card" data-name="Dr. Pankaj Chakraborty">
+  <h3>Dr. Pankaj Chakraborty</h3>
+  <p>Professor</p>
+  <p class="neon multiline">01712976747<br>(Ext. 514)</p>
+</div>
+
+<!-- Card 24 -->
+<div class="card" data-name="Dr. Monoar Sayeed Pallab">
+  <h3>Dr. Monoar Sayeed Pallab</h3>
+  <p>Professor</p>
+  <p class="neon multiline">01734930901<br>(Ext. 515)</p>
+</div>
+
+<!-- Card 25 -->
+<div class="card" data-name="Dr. Mohammed Nurul Absar Khan">
+  <h3>Dr. Mohammed Nurul Absar Khan</h3>
+  <p>Professor</p>
+  <p class="neon multiline">01675000357<br>(Ext. 727)</p>
+</div>
+
+<!-- Card 26 -->
+<div class="card" data-name="Dr. Mohi Uddin">
+  <h3>Dr. Mohi Uddin</h3>
+  <p>Associate Professor</p>
+  <p class="neon multiline">01920423876<br>(Ext. 352)</p>
+</div>
+
+<!-- Card 27 -->
+<div class="card" data-name="Dr. Subrata Kumar Shil">
+  <h3>Dr. Subrata Kumar Shil</h3>
+  <p>Associate Professor</p>
+  <p class="neon multiline">01728559371<br>(Ext. 353)</p>
+</div>
+
+<div class="card" data-name="Dr. Subrata Kumar Shil">
+  <h3>Dr. Subrata Kumar Shil</h3>
+  <p>Associate Professor</p>
+  <p class="neon multiline">01728559371<br>(Ext. 353)</p>
+</div>
+
+<div class="card" data-name="Dr. Amir Hossain Shaikat">
+  <h3>Dr. Amir Hossain Shaikat</h3>
+  <p>Associate Professor</p>
+  <p class="neon multiline">01717188344<br>(Ext. 373)</p>
+</div>
+
+<div class="card" data-name="Dr. Md. Shohel Al Faruk">
+  <h3>Dr. Md. Shohel Al Faruk</h3>
+  <p>Associate Professor</p>
+  <p class="neon multiline">01918624343<br>(Ext. 374)</p>
+</div>
+
+<div class="card" data-name="Dr. Md. Zohorul Islam">
+  <h3>Dr. Md. Zohorul Islam</h3>
+  <p>Associate Professor</p>
+  <p class="neon multiline">01716093665<br>(Ext. 412)</p>
+</div>
+
+<div class="card" data-name="Dr. Mukta Das Gupta">
+  <h3>Dr. Mukta Das Gupta</h3>
+  <p>Associate Professor</p>
+  <p class="neon multiline">01675438402<br>(Ext. 413)</p>
+</div>
+
+<div class="card" data-name="Dr. Md. Abdul Alim">
+  <h3>Dr. Md. Abdul Alim</h3>
+  <p>Associate Professor</p>
+  <p class="neon multiline">01723764574<br>(Ext. 434)</p>
+</div>
+
+<div class="card" data-name="Dr. Tahmina Bilkis">
+  <h3>Dr. Tahmina Bilkis</h3>
+  <p>Associate Professor</p>
+  <p class="neon multiline">01742144392<br>(Ext. 451)</p>
+</div>
+
+<div class="card" data-name="Dr. Marjina Akter">
+  <h3>Dr. Marjina Akter</h3>
+  <p>Associate Professor</p>
+  <p class="neon multiline">01714595810<br>(Ext. 472)</p>
+</div>
+
+<div class="card" data-name="Dr. Saiful Bari">
+  <h3>Dr. Saiful Bari</h3>
+  <p>Associate Professor</p>
+  <p class="neon multiline">01918398940<br>01677682829<br>(Ext. 473)</p>
+</div>
+
+<div class="card" data-name="Ms. Musammet Rasheda Begum">
+  <h3>Ms. Musammet Rasheda Begum</h3>
+  <p>Associate Professor</p>
+  <p class="neon multiline">01813595426<br>(Ext. 490)</p>
+</div>
+
+<div class="card" data-name="Mr. Sohel Rana">
+  <h3>Mr. Sohel Rana</h3>
+  <p>Associate Professor</p>
+  <p class="neon multiline">01718270997<br>(Ext. 491)</p>
+</div>
+
+<div class="card" data-name="Ms. Tasneem Imam">
+  <h3>Ms. Tasneem Imam</h3>
+  <p>Associate Professor</p>
+  <p class="neon multiline">01711480721<br>(Ext. 492)</p>
+</div>
+
+<div class="card" data-name="Mr. Abdul Rahman">
+  <h3>Mr. Abdul Rahman</h3>
+  <p>Associate Professor</p>
+  <p class="neon multiline">01715808137<br>(Ext. 493)</p>
+</div>
+
+<div class="card" data-name="Dr. Suchandan Sikder">
+  <h3>Dr. Suchandan Sikder</h3>
+  <p>Associate Professor</p>
+  <p class="neon multiline">01720150625<br>(Ext. 516)</p>
+</div>
+
+<div class="card" data-name="Dr. Md. Anowar Parvez">
+  <h3>Dr. Md. Anowar Parvez</h3>
+  <p>Associate Professor</p>
+  <p class="neon multiline">01717421335<br>(Ext. 517)</p>
+</div>
+
+<div class="card" data-name="Dr. Md. Ahaduzzaman">
+  <h3>Dr. Md. Ahaduzzaman</h3>
+  <p>Associate Professor</p>
+  <p class="neon multiline">01746077242<br>(Ext. 518)</p>
+</div>
+
+<div class="card" data-name="Ms. Ferdusee Akter">
+  <h3>Ms. Ferdusee Akter</h3>
+  <p>Associate Professor</p>
+  <p class="neon multiline">01712382840<br>(Ext. 547)</p>
+</div>
+
+<div class="card" data-name="Dr. Indrajit Saha">
+  <h3>Dr. Indrajit Saha</h3>
+  <p>Associate Professor</p>
+  <p class="neon multiline">01914869795<br>(Ext. 548)</p>
+</div>
+
+<div class="card" data-name="Dr. Shamsul Morshed">
+  <h3>Dr. Shamsul Morshed</h3>
+  <p>Associate Professor</p>
+  <p class="neon multiline">01762167016<br>(Ext. 567)</p>
+</div>
+
+<div class="card" data-name="Ms. Kazi Nazira Sharmin">
+  <h3>Ms. Kazi Nazira Sharmin</h3>
+  <p>Associate Professor</p>
+  <p class="neon multiline">01879235682<br>(Ext. 587)</p>
+</div>
+
+<div class="card" data-name="Ms. Ayesha Begum">
+  <h3>Ms. Ayesha Begum</h3>
+  <p>Associate Professor</p>
+  <p class="neon multiline">01717610474<br>(Ext. 588)</p>
+</div>
+
+<div class="card" data-name="Ms. Shireen Akther">
+  <h3>Ms. Shireen Akther</h3>
+  <p>Associate Professor</p>
+  <p class="neon multiline">01711957254<br>(Ext. 607)</p>
+</div>
+
+<div class="card" data-name="Dr. Jakia Sultana Jothi">
+  <h3>Dr. Jakia Sultana Jothi</h3>
+  <p>Associate Professor</p>
+  <p class="neon multiline">01723189496<br>(Ext. 609)</p>
+</div>
+
+<div class="card" data-name="Dr. Afroza Sultana">
+  <h3>Dr. Afroza Sultana</h3>
+  <p>Associate Professor</p>
+  <p class="neon multiline">01673716691<br>(Ext. 610)</p>
+</div>
+<div class="card" data-name="Mr. Md. Kauser-Ul-Alam">
+  <h3>Mr. Md. Kauser-Ul-Alam</h3>
+  <p>Associate Professor</p>
+  <p class="neon multiline">01722486460<br>(Ext. 608)</p>
+</div>
+
+<div class="card" data-name="Dr. Md. Mahiuddin Zahangir">
+  <h3>Dr. Md. Mahiuddin Zahangir</h3>
+  <p>Associate Professor</p>
+  <p class="neon multiline">01722788370<br>(Ext. 64)</p>
+</div>
+
+<div class="card" data-name="Dr. Mohammad Sadequr Rahman Khan">
+  <h3>Dr. Mohammad Sadequr Rahman Khan</h3>
+  <p>Associate Professor</p>
+  <p class="neon multiline">01723229101<br>(Ext. 688)</p>
+</div>
+
+<div class="card" data-name="Dr. Sk. Ahmed-Al-Nahid">
+  <h3>Dr. Sk. Ahmed-Al-Nahid</h3>
+  <p>Associate Professor</p>
+  <p class="neon multiline">01712505698<br>(Ext. 707)</p>
+</div>
+
+<div class="card" data-name="Dr. Md. Faisal">
+  <h3>Dr. Md. Faisal</h3>
+  <p>Associate Professor</p>
+  <p class="neon multiline">01719002289<br>(Ext. 728)</p>
+</div>
+
+<div class="card" data-name="Mr. Md. Habibur Rahman Khan">
+  <h3>Mr. Md. Habibur Rahman Khan</h3>
+  <p>Librarian</p>
+  <p class="neon multiline">01711043546<br>(Ext. 206)</p>
+</div>
+
+<div class="card" data-name="Mr. Md. Abul Kalam">
+  <h3>Mr. Md. Abul Kalam</h3>
+  <p>Director</p>
+  <p class="neon multiline">01819331733<br>(Ext. 186)</p>
+</div>
+
+<div class="card" data-name="Mr. Md. Mojibur Rahman">
+  <h3>Mr. Md. Mojibur Rahman</h3>
+  <p>Director (In-Charge)</p>
+  <p class="neon multiline">01712004698<br>01814081220<br>(Ext. 246)</p>
+</div>
+
+<div class="card" data-name="Engr. Achinto Kumar Chakrabortty">
+  <h3>Engr. Achinto Kumar Chakrabortty</h3>
+  <p>Chief Engineer</p>
+  <p class="neon multiline">01711071712<br>(Ext. 221)</p>
+</div>
+
+<div class="card" data-name="Mr. Md. Abul Kashem">
+  <h3>Mr. Md. Abul Kashem</h3>
+  <p>Controller of Examinations</p>
+  <p class="neon multiline">01818275828<br>(Ext. 176)</p>
+</div>
+
+<div class="card" data-name="Tasneem Imam">
+  <h3>Tasneem Imam</h3>
+  <p>Proctor</p>
+  <p class="neon multiline">01711480721<br>(Ext. 276)</p>
+</div>
+
+<div class="card" data-name="Md. Mainuddin Mamun">
+  <h3>Md. Mainuddin Mamun</h3>
+  <p>Assistant Proctor</p>
+  <p class="neon multiline">01781127118<br>(Ext. 277)</p>
+</div>
+
+<div class="card" data-name="Dr. Md. Emran Hossain">
+  <h3>Dr. Md. Emran Hossain</h3>
+  <p>Provost</p>
+  <p class="neon multiline">01720693066<br>(Ext. 281)</p>
+</div>
+
+<div class="card" data-name="Mr. Mohammad Mozibul Haque">
+  <h3>Mr. Mohammad Mozibul Haque</h3>
+  <p>Assistant Provost</p>
+  <p class="neon multiline">1673934214</p>
+</div>
+
+<div class="card" data-name="Abrar Shakil">
+  <h3>Abrar Shakil</h3>
+  <p>Assistant Provost</p>
+  <p class="neon multiline">1852723665</p>
+</div>
+
+<div class="card" data-name="DR. Eaftekhar Ahmed Rana">
+  <h3>DR. Eaftekhar Ahmed Rana</h3>
+  <p>Assistant Provost</p>
+  <p class="neon multiline">1918625437</p>
+</div>
+
+<div class="card" data-name="Shireen Akther">
+  <h3>Shireen Akther</h3>
+  <p>Provost</p>
+  <p class="neon multiline">01711957254<br>(Ext. 286)</p>
+</div>
+
+<div class="card" data-name="Tahsin Sultana">
+  <h3>Tahsin Sultana</h3>
+  <p>Assistant Provost</p>
+  <p class="neon multiline">01851367123<br>(Ext. 288)</p>
+</div>
+
+<div class="card" data-name="Engr. Zainal Abedin">
+  <h3>Engr. Zainal Abedin</h3>
+  <p>Deputy Registrar</p>
+  <p class="neon multiline">01819965233<br>(Ext. 162)</p>
+</div>
+
+<div class="card" data-name="Mr. Nasir Ahmed">
+  <h3>Mr. Nasir Ahmed</h3>
+  <p>Deputy Registrar</p>
+  <p class="neon multiline">01817721032<br>(Ext. 163)</p>
+</div>
+
+<div class="card" data-name="Mr. Khalilur Rahman">
+  <h3>Mr. Khalilur Rahman</h3>
+  <p>Deputy Director</p>
+  <p class="neon multiline">01712771827<br>(Ext. 106)</p>
+</div>
+
+<div class="card" data-name="Mr. Mohd. Yeasin Chowdhury">
+  <h3>Mr. Mohd. Yeasin Chowdhury</h3>
+  <p>Deputy Director</p>
+  <p class="neon multiline">01616607080<br>(Ext. 187)</p>
+</div>
+
+<div class="card" data-name="Engr. Md. Selim Morshed">
+  <h3>Engr. Md. Selim Morshed</h3>
+  <p>Superintending Engineer (C.C)</p>
+  <p class="neon multiline">01715315660<br>(Ext. 222)</p>
+</div>
+
+<div class="card" data-name="Engr. Koushik Nandi">
+  <h3>Engr. Koushik Nandi</h3>
+  <p>Executive Engineer (C.C)</p>
+  <p class="neon multiline">01670904222<br>(Ext. 223)</p>
+</div>
+
+<div class="card" data-name="Dr. Md. Nuruzzaman">
+  <h3>Dr. Md. Nuruzzaman</h3>
+  <p>Deputy controller of Examinations</p>
+  <p class="neon multiline">01798288778<br>(Ext. 177)</p>
+</div>
+
+<div class="card" data-name="Dr. Abdul Mannan">
+  <h3>Dr. Abdul Mannan</h3>
+  <p>Deputy Chief Veterinary Officer</p>
+  <p class="neon multiline">1814362649</p>
+</div>
+
+<div class="card" data-name="DR. Quazi Roksana Sultana">
+  <h3>DR. Quazi Roksana Sultana</h3>
+  <p>Deputy Chief Medical Officer</p>
+  <p class="neon multiline">01710914441<br>(Ext. 256)</p>
+</div>
+
+<div class="card" data-name="Dr. Md. Inkeyas Uddin">
+  <h3>Dr. Md. Inkeyas Uddin</h3>
+  <p>Principal Scientific Officer</p>
+  <p class="neon multiline">01712533519<br>(Ext. 133)</p>
+</div>
+
+<div class="card" data-name="DR. Abdullah Fl Faruq">
+  <h3>DR. Abdullah Fl Faruq</h3>
+  <p>Assistant Professor</p>
+  <p class="neon multiline">01737116141<br>(Ext. 354)</p>
+</div>
+
+<div class="card" data-name="DR. Sonnet Poddar">
+  <h3>DR. Sonnet Poddar</h3>
+  <p>Assistant Professor</p>
+  <p class="neon multiline">01857804018<br>(Ext. 355)</p>
+</div>
+<div class="card" data-name="DR. Mohammed Ashif Imtiaz Shawn">
+  <h3>DR. Mohammed Ashif Imtiaz Shawn</h3>
+  <p>Assistant Professor</p>
+  <p class="neon multiline">01670442370<br>01717492535<br>(Ext. 375)</p>
+</div>
+
+<div class="card" data-name="DR. Jabin Sultana">
+  <h3>DR. Jabin Sultana</h3>
+  <p>Assistant Professor</p>
+  <p class="neon multiline">01812347291<br>(Ext. 376)</p>
+</div>
+
+<div class="card" data-name="DR. Md. Ridoan Pasha">
+  <h3>DR. Md. Ridoan Pasha</h3>
+  <p>Lecturer</p>
+  <p class="neon multiline">01994129945<br>01516175194</p>
+</div>
+
+<div class="card" data-name="DR. Mahabub Alam">
+  <h3>DR. Mahabub Alam</h3>
+  <p>Assistant Professor</p>
+  <p class="neon multiline">01818411674<br>(Ext. 393)</p>
+</div>
+
+<div class="card" data-name="DR. Mukti Barua">
+  <h3>DR. Mukti Barua</h3>
+  <p>Assistant Professor</p>
+  <p class="neon multiline">01862759589<br>(Ext. 394)</p>
+</div>
+
+<div class="card" data-name="DR. Kona Adhikary">
+  <h3>DR. Kona Adhikary</h3>
+  <p>Assistant Professor</p>
+  <p class="neon multiline">1751052604</p>
+</div>
+
+<div class="card" data-name="DR. Priunka Bhowmik">
+  <h3>DR. Priunka Bhowmik</h3>
+  <p>Assistant Professor</p>
+  <p class="neon multiline">1777436439</p>
+</div>
+
+<div class="card" data-name="DR. Avijit Dutta">
+  <h3>DR. Avijit Dutta</h3>
+  <p>Assistant Professor</p>
+  <p class="neon multiline">01814951480<br>(Ext. 414)</p>
+</div>
+
+<div class="card" data-name="DR. Eaftekhar Ahmed Rana">
+  <h3>DR. Eaftekhar Ahmed Rana</h3>
+  <p>Assistant Professor</p>
+  <p class="neon multiline">1918625437</p>
+</div>
+
+<div class="card" data-name="DR. Md. Shafiqul Islam">
+  <h3>DR. Md. Shafiqul Islam</h3>
+  <p>Assistant Professor</p>
+  <p class="neon multiline">01670517796<br>(Ext. 436)</p>
+</div>
+
+<div class="card" data-name="DR. Tofazzal MD. Rakib">
+  <h3>DR. Tofazzal MD. Rakib</h3>
+  <p>Assistant Professor</p>
+  <p class="neon multiline">01715540460<br>(Ext. 437)</p>
+</div>
+
+<div class="card" data-name="DR. Tohida Kamal">
+  <h3>DR. Tohida Kamal</h3>
+  <p>Assistant Professor</p>
+  <p class="neon multiline">1684759823</p>
+</div>
+
+<div class="card" data-name="DR. Md. Moksedul Momin">
+  <h3>DR. Md. Moksedul Momin</h3>
+  <p>Assistant Professor</p>
+  <p class="neon multiline">01719366552<br>(Ext. 452)</p>
+</div>
+
+<div class="card" data-name="DR. Babu Kanti Nath">
+  <h3>DR. Babu Kanti Nath</h3>
+  <p>Assistant Professor</p>
+  <p class="neon multiline">01818653232<br>01626434620<br>(Ext. 474)</p>
+</div>
+
+<div class="card" data-name="DR. Arup RatanSen">
+  <h3>DR. Arup RatanSen</h3>
+  <p>Assistant Professor</p>
+  <p class="neon multiline">01676288289<br>(Ext. 475)</p>
+</div>
+
+<div class="card" data-name="DR. Nasima Akter">
+  <h3>DR. Nasima Akter</h3>
+  <p>Assistant Professor</p>
+  <p class="neon multiline">01913513793<br>(Ext. 476)</p>
+</div>
+
+<div class="card" data-name="S.M. Mokaddes Ahmed Dipu">
+  <h3>S.M. Mokaddes Ahmed Dipu</h3>
+  <p>Assistant Professor</p>
+  <p class="neon multiline">01912854205<br>01766667863<br>(Ext. 494)</p>
+</div>
+
+<div class="card" data-name="DR. Sharmin Akter">
+  <h3>DR. Sharmin Akter</h3>
+  <p>Assistant Professor</p>
+  <p class="neon multiline">01670498362<br>(Ext. 519)</p>
+</div>
+
+<div class="card" data-name="DR. Sazeda Akter">
+  <h3>DR. Sazeda Akter</h3>
+  <p>Assistant Professor</p>
+  <p class="neon multiline">01924159414<br>(Ext. 523)</p>
+</div>
+
+<div class="card" data-name="DR. Pranab Paul">
+  <h3>DR. Pranab Paul</h3>
+  <p>Assistant Professor</p>
+  <p class="neon multiline">01672115029<br>(Ext. 521)</p>
+</div>
+
+<div class="card" data-name="DR. Tuli Dey">
+  <h3>DR. Tuli Dey</h3>
+  <p>Assistant Professor</p>
+  <p class="neon multiline">01849210104<br>(Ext. 520)</p>
+</div>
+
+<div class="card" data-name="DR. Tanjila Hasan">
+  <h3>DR. Tanjila Hasan</h3>
+  <p>Assistant Professor</p>
+  <p class="neon multiline">01735509192<br>(Ext. 522)</p>
+</div>
+
+<div class="card" data-name="Ms. Dilshad Islam">
+  <h3>Ms. Dilshad Islam</h3>
+  <p>Assistant Professor</p>
+  <p class="neon multiline">01819035805<br>(Ext. 549)</p>
+</div>
+
+<div class="card" data-name="Ms. Rokeya Jahan Mukti">
+  <h3>Ms. Rokeya Jahan Mukti</h3>
+  <p>Assistant Professor</p>
+  <p class="neon multiline">01825372413<br>(Ext. 550)</p>
+</div>
+
+<div class="card" data-name="Mr. Md. Motiur Rahman">
+  <h3>Mr. Md. Motiur Rahman</h3>
+  <p>Assistant Professor</p>
+  <p class="neon multiline">01755040614<br>(Ext. 551)</p>
+</div>
+
+<div class="card" data-name="Mr. Md. Fahad Bin Quader">
+  <h3>Mr. Md. Fahad Bin Quader</h3>
+  <p>Assistant Professor</p>
+  <p class="neon multiline">01673201192<br>(Ext. 568)</p>
+</div>
+
+<div class="card" data-name="Mr. Suvanker Saha">
+  <h3>Mr. Suvanker Saha</h3>
+  <p>Assistant Professor</p>
+  <p class="neon multiline">01747444818<br>(Ext. 570)</p>
+</div>
+
+<div class="card" data-name="Mr. Md. Ashraful Islam">
+  <h3>Mr. Md. Ashraful Islam</h3>
+  <p>Assistant Professor</p>
+  <p class="neon multiline">01739192257<br>(Ext. 569)</p>
+</div>
+
+<div class="card" data-name="Mr. Monsur Ahmad">
+  <h3>Mr. Monsur Ahmad</h3>
+  <p>Assistant Professor</p>
+  <p class="neon multiline">01516708086<br>(Ext. 572)</p>
+</div>
+
+<div class="card" data-name="Mr. Md. Main Uddin Mamun">
+  <h3>Mr. Md. Main Uddin Mamun</h3>
+  <p>Assistant Professor</p>
+  <p class="neon multiline">01815-12171
+<div class="card" data-name="Ms. Ishrat Zahan Anka">
+  <h3>Ms. Ishrat Zahan Anka</h3>
+  <p>Assistant Professor</p>
+  <p class="neon multiline">01715716571<br>(Ext. 667)</p>
+</div>
+
+<div class="card" data-name="Ms. Joyshri Sarker">
+  <h3>Ms. Joyshri Sarker</h3>
+  <p>Assistant Professor</p>
+  <p class="neon multiline">01739703131<br>(Ext. 815)</p>
+</div>
+
+<div class="card" data-name="Dr. Helena Khatoon">
+  <h3>Dr. Helena Khatoon</h3>
+  <p>Assistant Professor</p>
+  <p class="neon multiline">01716396008<br>(Ext. 670)</p>
+</div>
+
+<div class="card" data-name="Mr. Mohammad Redwanur Rahman">
+  <h3>Mr. Mohammad Redwanur Rahman</h3>
+  <p>Assistant Professor</p>
+  <p class="neon multiline">01674564190<br>(Ext. 814)</p>
+</div>
+
+<div class="card" data-name="Dr. Md. Asaduzzaman">
+  <h3>Dr. Md. Asaduzzaman</h3>
+  <p>Assistant Professor</p>
+  <p class="neon multiline">01717412049<br>01617412049<br>(Ext. 689)</p>
+</div>
+
+<div class="card" data-name="Mr. Avijit Talukder">
+  <h3>Mr. Avijit Talukder</h3>
+  <p>Assistant Professor</p>
+  <p class="neon multiline">01758119025<br>(Ext. 690)</p>
+</div>
+
+<div class="card" data-name="Ms. Sumi Akter">
+  <h3>Ms. Sumi Akter</h3>
+  <p>Assistant Professor</p>
+  <p class="neon multiline">01765914789<br>(Ext. 691)</p>
+</div>
+
+<div class="card" data-name="Mr. Abrar Shakil">
+  <h3>Mr. Abrar Shakil</h3>
+  <p>Assistant Professor</p>
+  <p class="neon multiline">01852723665<br>(Ext. 992)</p>
+</div>
+
+<div class="card" data-name="Ms. Nayeema Ferdausy Hoque">
+  <h3>Ms. Nayeema Ferdausy Hoque</h3>
+  <p>Assistant Professor</p>
+  <p class="neon multiline">01571738558<br>(Ext. 693)</p>
+</div>
+
+<div class="card" data-name="Ms. Tasnuba Hasin">
+  <h3>Ms. Tasnuba Hasin</h3>
+  <p>Assistant Professor</p>
+  <p class="neon multiline">01717400088<br>(Ext. 708)</p>
+</div>
+
+<div class="card" data-name="Mr. Sk. Istiaque Ahmed">
+  <h3>Mr. Sk. Istiaque Ahmed</h3>
+  <p>Assistant Professor</p>
+  <p class="neon multiline">01612226605<br>(Ext. 709)</p>
+</div>
+
+<div class="card" data-name="Ms. Shahida Arfine Shimul">
+  <h3>Ms. Shahida Arfine Shimul</h3>
+  <p>Assistant Professor</p>
+  <p class="neon multiline">01834486311<br>(Ext. 710)</p>
+</div>
+
+<div class="card" data-name="Mr. Mirja Kaizer Ahmmed">
+  <h3>Mr. Mirja Kaizer Ahmmed</h3>
+  <p>Assistant Professor</p>
+  <p class="neon multiline">01783410133<br>(Ext. 729)</p>
+</div>
+
+<div class="card" data-name="Mr. Subrata Kumar Ghosh">
+  <h3>Mr. Subrata Kumar Ghosh</h3>
+  <p>Assistant Professor</p>
+  <p class="neon multiline">01715869874<br>(Ext. 730)</p>
+</div>
+
+<div class="card" data-name="Ms. Tahsin Sultana">
+  <h3>Ms. Tahsin Sultana</h3>
+  <p>Assistant Professor</p>
+  <p class="neon multiline">01851367123<br>(Ext. 731)</p>
+</div>
+
+<div class="card" data-name="Ms. Nafisa Nawar Tamzi">
+  <h3>Ms. Nafisa Nawar Tamzi</h3>
+  <p>Assistant Professor</p>
+  <p class="neon multiline">01778000559<br>(Ext. 732)</p>
+</div>
+
+<div class="card" data-name="DR. Mohammad Bayazid Bostami">
+  <h3>DR. Mohammad Bayazid Bostami</h3>
+  <p>Assistant Professor</p>
+  <p class="neon multiline">1625876820</p>
+</div>
+
+<div class="card" data-name="DR. Mizanur Rahman">
+  <h3>DR. Mizanur Rahman</h3>
+  <p>Assistant Professor</p>
+  <p class="neon multiline">1846960349</p>
+</div>
+
+<div class="card" data-name="DR. Aparna Datta">
+  <h3>DR. Aparna Datta</h3>
+  <p>Assistant Professor</p>
+  <p class="neon multiline">1766006690</p>
+</div>
+
+<div class="card" data-name="DR. Mohammad Riyadh">
+  <h3>DR. Mohammad Riyadh</h3>
+  <p>Senior Medical Officer</p>
+  <p class="neon multiline">01711155301<br>(Ext. 257)</p>
+</div>
+
+<div class="card" data-name="DR. Kachisree Saha">
+  <h3>DR. Kachisree Saha</h3>
+  <p>Residential Medical Officer</p>
+  <p class="neon multiline">1735225915</p>
+</div>
+
+<div class="card" data-name="Mr. Md. Shahadat Hossain">
+  <h3>Mr. Md. Shahadat Hossain</h3>
+  <p>Senior Health Instructor</p>
+  <p class="neon multiline">01712820457<br>(Ext. 258)</p>
+</div>
+
+<div class="card" data-name="Maulana Hafiz Ahmed">
+  <h3>Maulana Hafiz Ahmed</h3>
+  <p>Senior Pesh Imam</p>
+  <p class="neon multiline">01819871168<br>01670415433<br>(Ext. 165)</p>
+</div>
+
+<div class="card" data-name="Mr. Md. Alamgir Hossain">
+  <h3>Mr. Md. Alamgir Hossain</h3>
+  <p>Assistant Registrar</p>
+  <p class="neon multiline">01672407653<br>(Ext. 164)</p>
+</div>
+
+<div class="card" data-name="Mr. Tonmoy Deb">
+  <h3>Mr. Tonmoy Deb</h3>
+  <p>Assistant Registrar</p>
+  <p class="neon multiline">01712754178<br>(Ext. 127)</p>
+</div>
+
+<div class="card" data-name="Mr. Kazi Rabiul Hasan">
+  <h3>Mr. Kazi Rabiul Hasan</h3>
+  <p>Assistant Registrar</p>
+  <p class="neon multiline">01819631846<br>(Ext. 224)</p>
+</div>
+
+<div class="card" data-name="Mr. Chamak Chanda">
+  <h3>Mr. Chamak Chanda</h3>
+  <p>Assistant Registrar</p>
+  <p class="neon multiline">01712530239<br>(Ext. 135)</p>
+</div>
+
+<div class="card" data-name="Mr. Md. Golam Mued">
+  <h3>Mr. Md. Golam Mued</h3>
+  <p>Assistant Registrar</p>
+  <p class="neon multiline">01712543011<br>(Ext. 122)</p>
+</div>
+
+<div class="card" data-name="Mr. Thohedul Hoque">
+  <h3>Mr. Thohedul Hoque</h3>
+  <p>Assistant Director</p>
+  <p class="neon multiline">01717264041<br>(Ext. 189)</p>
+</div>
+
+<div class="card" data-name="Mr. Ajit Kumar Paul">
+  <h3>Mr. Ajit Kumar Paul</h3>
+  <p>Assistant Director</p>
+  <p class="neon multiline">01716431400<br>(Ext. 188)</p>
+</div>
+<div class="card" data-name="Mr. Mohammad Jamal Hossain">
+  <h3>Mr. Mohammad Jamal Hossain</h3>
+  <p>Assistant Librarian</p>
+  <p class="neon multiline">01710842753<br>(Ext. 207)</p>
+</div>
+
+<div class="card" data-name="Mr. Mohammad Salah Uddin">
+  <h3>Mr. Mohammad Salah Uddin</h3>
+  <p>Senior Technical Officer</p>
+  <p class="neon multiline">01819612868<br>(Ext. 438)</p>
+</div>
+
+<div class="card" data-name="Mr. Mohammad Jalal Uddin">
+  <h3>Mr. Mohammad Jalal Uddin</h3>
+  <p>Senior Technical Officer</p>
+  <p class="neon multiline">01814239353<br>(Ext. 524)</p>
+</div>
+
+<div class="card" data-name="Mr. Mohammad Rafiqul Islam">
+  <h3>Mr. Mohammad Rafiqul Islam</h3>
+  <p>Senior Technical Officer</p>
+  <p class="neon multiline">1718684326</p>
+</div>
+
+<div class="card" data-name="Mr. Md. Bayezid Hasan Dhali">
+  <h3>Mr. Md. Bayezid Hasan Dhali</h3>
+  <p>Senior Technical Officer</p>
+  <p class="neon multiline">01815639358<br>(Ext. 356)</p>
+</div>
+
+<div class="card" data-name="Mr. Md. Khorshed Alam">
+  <h3>Mr. Md. Khorshed Alam</h3>
+  <p>Senior Technical Officer</p>
+  <p class="neon multiline">01819632096<br>(Ext. 398)</p>
+</div>
+
+<div class="card" data-name="Mr. Md. Aktar Faruk">
+  <h3>Mr. Md. Aktar Faruk</h3>
+  <p>Senior Technical Officer</p>
+  <p class="neon multiline">1710483512</p>
+</div>
+
+<div class="card" data-name="Mr. Monjour Alam">
+  <h3>Mr. Monjour Alam</h3>
+  <p>Senior Technical Officer</p>
+  <p class="neon multiline">01813670024<br>(Ext. 415)</p>
+</div>
+
+<div class="card" data-name="Mr. Md. Mamun Sikder">
+  <h3>Mr. Md. Mamun Sikder</h3>
+  <p>Assistant Computer Programmer</p>
+  <p class="neon multiline">01738203209<br>(Ext. 199)</p>
+</div>
+
+<div class="card" data-name="Mr. Nasim Ahmed">
+  <h3>Mr. Nasim Ahmed</h3>
+  <p>Assistant Network Engineer</p>
+  <p class="neon multiline">01991953330<br>(Ext. 200)</p>
+</div>
+
+<div class="card" data-name="Mr. Md. Mahshin Mia">
+  <h3>Mr. Md. Mahshin Mia</h3>
+  <p>Assistant Controller of Examinations</p>
+  <p class="neon multiline">01816448522<br>(Ext. 178)</p>
+</div>
+
+<div class="card" data-name="Mr. Md. Alamgir Monsur">
+  <h3>Mr. Md. Alamgir Monsur</h3>
+  <p>Assistant Engineer (Civil)</p>
+  <p class="neon multiline">01712505798<br>(Ext. 225)</p>
+</div>
+
+<div class="card" data-name="Mr. Md. Amir Ullah Hriday">
+  <h3>Mr. Md. Amir Ullah Hriday</h3>
+  <p>Assistant Engineer (Civil)</p>
+  <p class="neon multiline">01866696220<br>01683823272<br>(Ext. 226)</p>
+</div>
+
+<div class="card" data-name="Mr. Mohammad Golam Maola">
+  <h3>Mr. Mohammad Golam Maola</h3>
+  <p>Physical Instructor</p>
+  <p class="neon multiline">01816664621<br>01991956150<br>(Ext. 247)</p>
+</div>
+
+<div class="card" data-name="Dr. Mir Md. Afzal Hossain">
+  <h3>Dr. Mir Md. Afzal Hossain</h3>
+  <p>Veterinary Surgeon</p>
+  <p class="neon multiline">1831524422</p>
+</div>
+
+<div class="card" data-name="Mr. Razib Datta">
+  <h3>Mr. Razib Datta</h3>
+  <p>Accounts Officer (Audit)</p>
+  <p class="neon multiline">01914601923<br>(Ext. 190)</p>
+</div>
+
+<div class="card" data-name="Mr. Sudip Chanda">
+  <h3>Mr. Sudip Chanda</h3>
+  <p>Accounts Officer</p>
+  <p class="neon multiline">1711315208</p>
+</div>
+
+<div class="card" data-name="Mr. Nahid Mahmud">
+  <h3>Mr. Nahid Mahmud</h3>
+  <p>Security Officer</p>
+  <p class="neon multiline">1819355605</p>
+</div>
+
+<div class="card" data-name="Ms. Aditi Dey Mau">
+  <h3>Ms. Aditi Dey Mau</h3>
+  <p>Manager (IQAC)</p>
+  <p class="neon multiline">1681662338</p>
+</div>
+
+<div class="card" data-name="Mr. Md. Jashim Uddin (Khokan)">
+  <h3>Mr. Md. Jashim Uddin (Khokan)</h3>
+  <p>Section Officer & PS to VC (Add. Charge)</p>
+  <p class="neon multiline">01815647924<br>(Ext. 103)</p>
+</div>
+
+<div class="card" data-name="Mr. Mukul Kanti Dhar">
+  <h3>Mr. Mukul Kanti Dhar</h3>
+  <p>Technical Officer</p>
+  <p class="neon multiline">1812432163</p>
+</div>
+
+<div class="card" data-name="Mr. Md. Iqbal Hossain">
+  <h3>Mr. Md. Iqbal Hossain</h3>
+  <p>Technical Officer</p>
+  <p class="neon multiline">1837019740</p>
+</div>
+
+
+<div class="card" data-name="Mr. Kazi Md. Rokon Uddin">
+  <h3>Mr. Kazi Md. Rokon Uddin</h3>
+  <p>Technical Officer</p>
+  <p class="neon multiline">01818-827464</p>
+</div>
+
+<div class="card" data-name="Ms. Sarmin Sultana">
+  <h3>Ms. Sarmin Sultana</h3>
+  <p>Technical Officer</p>
+  <p class="neon multiline">1816447093</p>
+</div>
+
+<div class="card" data-name="Mr. A.N.M. Jahid Hasan">
+  <h3>Mr. A.N.M. Jahid Hasan</h3>
+  <p>Technical Officer</p>
+  <p class="neon multiline">1725879785</p>
+</div>
+
+<div class="card" data-name="Mr. S.M Ziaul Hoque">
+  <h3>Mr. S.M Ziaul Hoque</h3>
+  <p>Technical Officer</p>
+  <p class="neon multiline">1812286729</p>
+</div>
+
+<div class="card" data-name="Ms. Supriya Biswas">
+  <h3>Ms. Supriya Biswas</h3>
+  <p>Technical Officer</p>
+  <p class="neon multiline">1811612804</p>
+</div>
+
+<div class="card" data-name="Mr. Shiddarta Sankar Chowdhury">
+  <h3>Mr. Shiddarta Sankar Chowdhury</h3>
+  <p>Technical Officer</p>
+  <p class="neon multiline">1571740185</p>
+</div>
+
+<div class="card" data-name="Mr. Md. Solaiman Hossain">
+  <h3>Mr. Md. Solaiman Hossain</h3>
+  <p>Section Officer (Store)</p>
+  <p class="neon multiline">01721119050<br>(Ext. 166)</p>
+</div>
+
+<div class="card" data-name="Mr. Md. Omar Faruk">
+  <h3>Mr. Md. Omar Faruk</h3>
+  <p>Section Officer (Photography)</p>
+  <p class="neon multiline">01719139839<br>(Ext. 107)</p>
+</div>
+
+<div class="card" data-name="Mr. Md. Shahadat Hossain">
+  <h3>Mr. Md. Shahadat Hossain</h3>
+  <p>Information & Publication Officer (C.C)</p>
+  <p class="neon multiline">1814467320</p>
+</div>
+
+<div class="card" data-name="Mr. Golam Razzaq Patwary">
+  <h3>Mr. Golam Razzaq Patwary</h3>
+  <p>Section Officer (C.C)</p>
+  <p class="neon multiline">1864813281</p>
+</div>
+
+<div class="card" data-name="Ms. Chumki Chanda">
+  <h3>Ms. Chumki Chanda</h3>
+  <p>Section Officer (C.C)</p>
+  <p class="neon multiline">1683133460</p>
+</div>
+
+<div class="card" data-name="Mr. Abu Mohammad Arif">
+  <h3>Mr. Abu Mohammad Arif</h3>
+  <p>Section Officer (C.C)</p>
+  <p class="neon multiline">1714407412</p>
+</div>
+
+<div class="card" data-name="Mr. I.M.J. Shaheen">
+  <h3>Mr. I.M.J. Shaheen</h3>
+  <p>Assistant Technical Officer</p>
+  <p class="neon multiline">1818252959</p>
+</div>
+
+<div class="card" data-name="Ms. Priyanka Sharma">
+  <h3>Ms. Priyanka Sharma</h3>
+  <p>Assistant Technical Officer</p>
+  <p class="neon multiline">1633034460</p>
+</div>
+
+<div class="card" data-name="Mr. Md. Rezwan">
+  <h3>Mr. Md. Rezwan</h3>
+  <p>Sub-Assistant Engineer (Civil)</p>
+  <p class="neon multiline">1917679151</p>
+</div>
+
+<div class="card" data-name="Mr. Ratan Chandra Majumdar">
+  <h3>Mr. Ratan Chandra Majumdar</h3>
+  <p>Administrative Officer</p>
+  <p class="neon multiline">1893349381</p>
+</div>
+
+<div class="card" data-name="Mr. Md. Showkat Ali">
+  <h3>Mr. Md. Showkat Ali</h3>
+  <p>Administrative Officer</p>
+  <p class="neon multiline">1718761107</p>
+</div>
+
+<div class="card" data-name="Mr. Kazi Md. Arshad">
+  <h3>Mr. Kazi Md. Arshad</h3>
+  <p>Administrative Officer</p>
+  <p class="neon multiline">1815853527</p>
+</div>
+
+<div class="card" data-name="Mr. Mijanur Rahman">
+  <h3>Mr. Mijanur Rahman</h3>
+  <p>Administrative Officer</p>
+  <p class="neon multiline">1814446436</p>
+</div>
+
+<div class="card" data-name="Ms. Tasmia Naorin">
+  <h3>Ms. Tasmia Naorin</h3>
+  <p>Nurse</p>
+  <p class="neon multiline">1853331310</p>
+</div>
+
+<div class="card" data-name="Janata Bank Ltd.">
+  <h3>Janata Bank Ltd.</h3>
+  <p>Manager</p>
+  <p class="neon multiline">01711396204<br>02334466439</p>
+</div>
+
+<div class="card" data-name="Meher Nahid">
+  <h3>Meher Nahid</h3>
+  <p>Lecturer</p>
+  <p class="neon multiline">01715-245967</p>
+</div>
+
+<div class="card" data-name="Nahidur Rahman">
+  <h3>Nahidur Rahman</h3>
+  <p>Lecturer</p>
+  <p class="neon multiline">01795 496578</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+  <!-- JavaScript for search functionality -->
+  <script>
+    function searchNames() {
+      let input = document.getElementById('search-bar').value.toLowerCase();
+      let cards = document.getElementsByClassName('card');
+
+      for (let i = 0; i < cards.length; i++) {
+        let name = cards[i].getAttribute('data-name').toLowerCase();
+        if (name.includes(input)) {
+          cards[i].style.display = '';
+        } else {
+          cards[i].style.display = 'none';
+        }
+      }
+    }
+  </script>
+
+</body>
+</html>
