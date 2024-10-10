@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hacker Style Passwords Checker</title>
+    <style>
+        body {
+            background-color: #0d0d0d;
+            color: #00ff00;
+            font-family: 'Courier New', Courier, monospace;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            perspective: 1000px;
+        }
+
+        .container {
+            width: 80%;
+            max-width: 800px;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 30px rgba(0, 255, 0, 0.5);
+            transform: rotateY(10deg);
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            font-size: 1em;
+            box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+            background-color: #1a1a1a;
+            color: #00ff00;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #00cc00;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-size: 1em;
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background-color: #009900;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-size: 1.2em;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Password Checker </h1>
+    <input type="text" id="numberInput" placeholder="Enter mobile number...">
+    <button onclick="searchData()">Search</button>
+    <div id="result"></div>
+</div>
+
+<script>
+    const userData = [
+    
+        "Nusrat Jahan Mim, 01300655988_1@2#3$",
+        "Nusrat Jahan Mim, 01300655988_1@2#3$",
+"Afrin Antora, 01300723180_123456",
+"Abdullah Al Mahmud Nayen, 01306275435_767517",
+"Rahul Ahmed, 01306337288_rahul9",
+"Esha, 01308759979_759979",
+"Onamikq, 01308766580_321654",
+"MD Jaber, 01312333002_000000",
+"Afia, 01312630997_FST-13",
+"Upoma, 01313977468_aabbcc",
+"Naila Mehjabin Saima, 01314047193_150720",
+"Jahin Jaher, 01314138457_23864j",
+"MD. Asifur Rahman Asif, 01314283031_@ABc@1",
+"Mrittika Chowdhury, 01314404691_mitu01",
+"Mity, 01315129911_123456",
+"Nilima Sultanq, 01316753113_224113",
+"Nusrat, 01318868199_221022",
+"Mst Kulsum Jahan, 01327402965_325698",
+"Mujahid Hossain, 01402147041_158308",
+"Al Hasan Nahid, 01518346997_123456",
+"Jeba Mustura, 01521538061_538061",
+"Samia Islam Seba, 01521579553_123456",
+"Farzana Afroj Shima, 01521748808_abcdef",
+"Mim, 01521755016_123456",
+"Adrita Das, 01533174060_123456",
+"Muntahar Mustari Miha, 01533848998_015338",
+"Ishra, 01537037140_392001",
+"Nawatul Afroze, 01537339990_#chill",
+"Rahul Paul, 01537359550_012345",
+"Nadia Sabur Naima, 01537371298_260701",
+"Mottakin Hossain, 01537424494_123462",
+"Shamim, 01567893306_123456",
+"Hossain Mohammad Refat, 01568162302_733280",
+"Tuhin, 01568241995_123789",
+"MD Shahriar Hossain Sami, 01568527434_sami00",
+"Tasnova Zafrin, 01571002577_ffst00",
+"Rahnuma, 01571002596_453210",
+"Jannatul Toyba Proma, 01571185439_072001",
+"Jannatul Mauya, 01575178097_123321",
+"Here is the additional data formatted as requested:",
+"",
+"```",
+"Arman, 01575412256_jkoolp",
+"Sharif Uddin Bhuiyan, 01576488384_488384",
+"Tuhin, 01576587462_100343",
+"Sadia Rahman Ifti, 01576592216_157659",
+"Md Mehedi Hasan, 01580820176_552067",
+"Ishwak, 01601829238_ishwak",
+"Akash Shill, 01606767975_@ASaka",
+"DM, 01607113077_987654",
+"Tanser, 01608012598_tanser",
+"Fahmid, 01608191165_311522",
+"Afsana Enam, 01608633690_191017",
+"Mohammad Imtiaz Uddin Emon, 01608943768_Im1028",
+"Abida Jannat, 01609639679_Niloy3",
+"Mirza Mahfuz Hasan Akash, 01609764965_medica",
+"Afsana, 01610286848_123321",
+"MD. Abdullah Al Mahin, 01612775236_fstfst",
+"Iftekhar, 01615629925_202020",
+"Mohammad Imtiaz, 01617249340_249340",
+"Abu Bakar Siddique Khan, 01617723653_723653",
+"Iftekhar, 01618422555_123456",
+"Abhishek Chakravorty, 01619201822_163596",
+"Rashid Shabab Shuvo, 01620896104_123456",
+"Tanjim, 01621821418_tan3am",
+"Dipannita Dey, 01625478995_123456",
+"Shabrena Jahan Shama, 01627347952_282200",
+"Ancon Kumar Sarkar, 01629447074_ancon1",
+"Anjuman Jahan, 01629497713_138290",
+"Shuvo, 01630882056_258025",
+"Nahid, 01631815861_nahid5",
+"Upoma Chowdhury, 01632476391_upoma",
+"Nilima Hoque, 01638533913_122364",
+"Istiak Ahmed Nabil, 01639050558_835751",
+"Nafisa, 01639275288_158223",
+"Test Mode, 01641650114_112233",
+"Rafi 13, 01642783275_109678",
+"Abuhuryra Talha, 01643970771_161050",
+"Apara Dutta, 01644240222_Titly6",
+"Muhammad Junayed, 01647448147_279049",
+"Morshed, 01648658466_morshe",
+"FarZana Akter_01674659672_21/48$",
+"Daud IbRahim_01676596995_141084",
+"Nafisa Tabassum Raisa_01690074801_123456",
+"Mst. jannatul Maua_01703139926_258012",
+"Ayan Majumder_01704381741_147183",
+"Nishat Nowal_01704644358_rafa38",
+"Naymur_01708634440_shamim",
+"suraiya_01709342237_111111",
+"khadeza_01710102973_khadez",
+"Hridika Das_01710826298_hridi7",
+"Aindrila_01711125858_345678",
+"mohona_01711191437_981124",
+"Ayesha Siddika_01714714068_ayesha",
+"wahid_01715502086_123456",
+"Abul Hasan_01718301247_098765",
+"nandita paul_01727534387_017960",
+"Nazmul islam Raihan_01727537903_000000",
+"ancon_01730948756_avroer",
+"wahid_01731867366_durbin",
+"Israt Jahan Juthy_01733146596_love67",
+"faisal_01734022960_ami024",
+"ancon sarkar_01734770855_123456",
+"Istiak_01739682283_666666",
+"Md mottakin hossain_01741283907_455045",
+"Anik_01742470879_151357",
+"Shihab_01742746434_111111",
+"sadia Yesmin_01742784986_258022",
+"Mubashira Rahman Mim_01745659184_659184",
+"Tahira Binte motiur_01748801339_017488",
+"khadiza kobra_01750117760_246810",
+"Sadman mahin_01751890509_m2m@m2",
+"miraz_01751968516_808090",
+"Shishir sheikh_01753639111_246800",
+"Jabarul jakaria shuvo_01754703480_258025",
+"Mosiur Rahman_01755382954_Mosiur",
+"mubasshira Ira_01761776000_081220",
+"Farhad Faisal_01762582676_654321",
+"Sumaya Mishu_01765080410_123456",
+"Tasnim Tuba_01768578211_975310",
+"shuvo_01768602036_cvasu1",
+"Israt Jahan juthy_01770670467_Napa67",
+"yeasin nilu_01774831684_nilu12",
+"Jannatul Ferodous_01775025772_147251",
+"Azizur Rahman Raj_01775648015_123456",
+"SAJJAD_01776279569_123456",
+"wahid shanto_01778938804_wahidd",
+"Md. maharazul abedin_01779521864_454545",
+"Fahmida afrin Fariha_01781252432_552001",
+"abdush shahid_01783486930_shahid",
+"farluna hoque hridi_01784693183_100100",
+"Md.Rakibul Hasan_01786959968_RAKIBu",
+"MD.MUNTASIR RAHMAN MAHI_01791810808_272003",
+"Md. Jummun Islam Jaber_01794094122_jaber1",
+"tanjim_01794677414_tanvai",
+"md julhash_01797570503_119256",
+"Umme Heena_01810435641_435641",
+"Arman Shahbaz ahmad_01811535237_104889",
+"Towhid_01813981296_ffst14",
+"Rahat Bin Mortaza's_01816007130_Rijvi3",
+"Sadia Chowdhury Nawrin_01816301772_123456",
+"Pritha Chowdhury_01817317842_123678",
+"Israt_01819195815_090220",
+"Iftekhar Hossain_01821816702_657965",
+"Md Towhid_01823765998_114291",
+"Sadia Tuz Zohra_01824077242_199662",
+"Pragga Labani Barua_01824755862_231105",
+"Sujoy Das_01825443544_153022",
+"naz_01825592387_171441",
+"Israt jahan esha_01827530883_202323",
+"sourav_01828700947_125306",
+"Tonmoy Rohit_01829665783_tonmoy",
+"Nusrat Jahan Nahin_01831423492_nahin1",
+"afradul_01833005808_aFr@du",
+"Abdul Kader jilane_01834538817_mainul",
+"Jahin Jaher_01834693895_96317j",
+"Sadman Rafi_01836732846_Rafi46",
+"Md.Abdur rahim_01839251364_rahim@",
+"tasdikul mahi_01839474735_laptop",
+"sajida jissan_01840107224_lamya5",
+"Dip Chowdhury Omi_01841058053_123456",
+"mahia_01847097905_097905",
+"Nowrin Rahman_01851054269_124469",
+"Maisha Hasnat_01852179836_FST122",
+"Afra Adiba Islam_01852480006_afra11",
+"Shilpa_01855377498_202150",
+"Nadia akther_01859824559_141491",
+"ismat Alam_01864894959_123456",
+"Tajmoon akter moni_01867300369_300369",
+"Priyanka paul_01867854424_124578",
+"Abrar_01868163881_abrar2",
+"Tuhin_01868241995_123789",
+"afrin antora_01869328937_706210",
+"Miftahul islam rian_01871510289_510289",
+"Zubayer Ahmed shuvo_01872167478_zasnjr",
+"Ananta_01875232337_ananta",
+"মোঃ ইসমাইল আল-আমিন_01875703206_555666",
+"Minhaz ahmed_01876626744_707070",
+"Niha Jahan Ratna_01877534394_775343",
+"S.M Sazzad Mahmud Sunny_01879400813_183736",
+"Hafsa Ahmed Tisha_01881540173_tishaa",
+"sharat mohajan_01881741387_398769",
+"nusrat_01881944647_durbin",
+"Anika Taslim_01882783409_123321",
+"Ratree Chowdhury_01885218716_137867",
+"Arpita Bhattacharjee_01885379956_121315",
+"Emon Saha_01885478509_123456",
+"Meheroon_01886229055_Cvasu1",
+"Fariha Jahan_01886539915_086427",
+"Istiar_01886784462_336869",
+"Md Zobaidul hoque sourav_01888637520_872187",
+"tanmoy_01891582301_Tanmoy",
+"Mohammad farhad uddin_01893092135_018930",
+"Nafisa_01897833208_158223",
+"Nazmul Islam Raihan_01906362493_qwe098",
+"Mahbuba Raman Mary_01914185640_mary77",
+"Naima Sultana_01916073697_Allahu",
+"Akib ullah Chowdhury_01919613827_21-106",
+"Shamim_01921390100_123456",
+"Talha_01930913335_123456",
+"Shajid gani shawon_01933475765_123456",
+"Sayed Hossen Rony_01939229752_amitmi",
+"Jannatul Anjum Tasnim_01948075578_1711an",
+"Israt_ Suchana_01950199642_130220",
+"priyanka paul_01951070377_priyan",
+"Dola_01968065007_201120",
+"Tamanna Tabassum_01973536119_536119",
+"NAzMUL_01976362493_000000",
+"payel Chowdhury_01976514990_018165",
+"Md.Shihab_01978866890_779079",
+
+        "Afrin Antora, 01300723180_123456",
+        "Abdullah Al Mahmud Nayen, 01306275435_767517",
+        "Rahul Ahmed, 01306337288_rahul9",
+        "Esha, 01308759979_759979",
+        "Onamikq, 01308766580_321654",
+        "MD Jaber, 01312333002_000000",
+        "Afia, 01312630997_FST-13",
+        "Upoma, 01313977468_aabbcc",
+        "Nazmul Islam Raihan, 01906362493_qwe098",
+        "Mahbuba Raman Mary, 01914185640_mary77",
+        "Naima Sultana, 01916073697_Allahu",
+        "Akib ullah Chowdhury, 01919613827_21-106",
+        "Shamim, 01921390100_123456",
+        "Talha, 01930913335_123456",
+        "Shajid gani shawon, 01933475765_123456",
+        "Sayed Hossen Rony, 01939229752_amitmi",
+        "Jannatul Anjum Tasnim, 01948075578_1711an",
+        "Israt_ Suchana, 01950199642_130220",
+        "priyanka paul, 01951070377_priyan",
+        "Dola, 01968065007_201120",
+        "Tamanna Tabassum, 01973536119_536119",
+        "NAzMUL, 01976362493_000000",
+        "payel Chowdhury, 01976514990_018165",
+        "Md.Shihab, 01978866890_779079"
+    ];
+
+    function searchData() {
+        const input = document.getElementById('numberInput').value.trim();
+        const resultDiv = document.getElementById('result');
+        resultDiv.innerHTML = ''; // Clear previous result
+
+        const user = userData.find(data => data.includes(input));
+        
+        if (user) {
+            const [name, mobile, password] = user.split(/,|_/).map(item => item.trim());
+            resultDiv.innerHTML = `
+                Name: ${name}<br>
+                Mobile Number: ${mobile}<br>
+                Password: ${password}<br><br>
+                "Cracked By Shamim_Official"
+            `;
+        } else {
+            resultDiv.textContent = 'No user found with that number.';
+        }
+    }
+</script>
+
+</body>
+</html>

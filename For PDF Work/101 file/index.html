@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Card View of Subjects</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f9f9f9;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        .card {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            width: 300px;
+            perspective: 1000px;
+        }
+        .card:hover {
+            transform: scale(1.05) rotateY(5deg);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        .card-header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            font-size: 18px;
+        }
+        .card-content {
+            padding: 15px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .icon {
+            text-decoration: none;
+            color: #4CAF50; /* Change color as needed */
+            font-size: 18px; /* Adjust size */
+        }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <div class="card-header">English</div>
+    <div class="card-content">
+        <table>
+            <tr>
+                <th>Topic</th>
+                <th>File Type</th>
+                <th>Link</th>
+            </tr>
+            <tr>
+                <td>Folder</td>
+                <td>Folder</td>
+                <td><a class="icon" href="https://drive.google.com/drive/folders/1Jj5Lab-kXXtr6sj--4MMJto2cgtGSa6K" target="_blank">👁️</a></td>
+            </tr>
+            <tr>
+                <td>English Phonetics</td>
+                <td>PDF</td>
+                <td><a class="icon" href="https://drive.google.com/file/d/1BCfVt3pdXZiqy-y3mxnh7BBq11JgLv5O/view?usp=drivesdk" target="_blank">👁️</a></td>
+            </tr>
+            <tr>
+                <td>Subject-Verb Agreement</td>
+                <td>PDF</td>
+                <td><a class="icon" href="https://drive.google.com/file/d/1JrSbZLnOty8InHwGmvIf5UuWHA8bLbvm/view?usp=drivesdk" target="_blank">👁️</a></td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header">LAB Sheets</div>
+    <div class="card-content">
+        <table>
+            <tr>
+                <th>Topic</th>
+                <th>File Type</th>
+                <th>Link</th>
+            </tr>
+            <tr>
+                <td>LAB Sheets</td>
+                <td>Folder</td>
+                <td><a class="icon" href="https://drive.google.com/drive/folders/1IkkSooMaNCd7lN7pURWADUavJUIy8KeS" target="_blank">👁️</a></td>
+            </tr>
+            <tr>
+                <td>Physics</td>
+                <td>Folder</td>
+                <td><a class="icon" href="https://drive.google.com/drive/folders/1qGgT1tzEpS_H5P5TxSTeiQTYHriITYCO" target="_blank">👁️</a></td>
+            </tr>
+            <tr>
+                <td>Physics Lab Sheet</td>
+                <td>PDF</td>
+                <td><a class="icon" href="https://drive.google.com/file/d/1652Z5ied_ofU6Z-SQo7_2MVtAXPrRuPK/view?usp=drivesdk" target="_blank">👁️</a></td>
+            </tr>
+            <tr>
+                <td>Physics Practical Book</td>
+                <td>PDF</td>
+                <td><a class="icon" href="https://drive.google.com/file/d/1qJhtOerEe-ytKfZdLqvtk0TJpEsGjgIB/view?usp=drivesdk" target="_blank">👁️</a></td>
+            </tr>
+            <tr>
+                <td>Human Biology</td>
+                <td>Folder</td>
+                <td><a class="icon" href="https://drive.google.com/drive/folders/1IlxZx-EvgfS2CbxbPYvDCFWkagf8t29I" target="_blank">👁️</a></td>
+            </tr>
+            <tr>
+                <td>Identification</td>
+                <td>PDF</td>
+                <td><a class="icon" href="https://drive.google.com/file/d/1SLZlgj-V7kNrwkDAHk0Oi7SK-itPsc8k/view?usp=drivesdk" target="_blank">👁️</a></td>
+            </tr>
+            <tr>
+                <td>Practical Manual</td>
+                <td>PDF</td>
+                <td><a class="icon" href="https://drive.google.com/file/d/1-YUuYT3_DIf2pq_d_xNFSJfDGgDAfqrZ/view?usp=drivesdk" target="_blank">👁️</a></td>
+            </tr>
+            <tr>
+                <td>Chemistry LAB</td>
+                <td>Folder</td>
+                <td><a class="icon" href="https://drive.google.com/drive/folders/1wfi39rDtvwL6sGkjFcGMtRNH4mw41mJj" target="_blank">👁️</a></td>
+            </tr>
+            <tr>
+                <td>Chemistry LAB</td>
+                <td>PDF</td>
+                <td><a class="icon" href="https://drive.google.com/file/d/1whqs8doagDPomBTw0WZm6yoXI7IhiRl_/view?usp=drivesdk" target="_blank">👁️</a></td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header">Chemistry</div>
+    <div class="card-content">
+        <table>
+            <tr>
+                <th>Topic</th>
+                <th>File Type</th>
+                <th>Link</th>
+            </tr>
+            <tr>
+                <td>Chemistry</td>
+                <td>Folder</td>
+                <td><a class="icon" href="https://drive.google.com/drive/folders/1wRzzm3PrfNn8WadxC9MdVEU67DHrF46h" target="_blank">👁️</a></td>
+            </tr>
+            <tr>
+                <td>Hydrogen & Inert Gas</td>
+                <td>PDF</td>
+                <td><a class="icon" href="https://drive.google.com/file/d/1yIzVEvBNh7tjP_J2pkIaw4ftb_wpNo0n/view?usp=drivesdk" target="_blank">👁️</a></td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header">Elementary Food Science</div>
+    <div class="card-content">
+        <table>
+            <tr>
+                <th>Topic</th>
+                <th>File Type</th>
+                <th>Link</th>
+            </tr>
+            <tr>
+                <td>Elementary Food Science</td>
+                <td>Folder</td>
+                <td><a class="icon" href="https://drive.google.com/drive/folders/16qULTMQc4ox4Z0PBXDKxdLAESJrUfIoR" target="_blank">👁️</a></td>
+            </tr>
+            <tr>
+                <td>Elementary Food Science Sheet</td>
+                <td>PDF</td>
+                <td><a class="icon" href="https://drive.google.com/file/d/16xtJamu9QDYPGIf1fzf40lywFe64o9hl/view?usp=drivesdk" target="_blank">👁️</a></td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header">Mathematics</div>
+    <div class="card-content">
+        <table>
+            <tr>
+                <th>Topic</th>
+                <th>File Type</th>
+                <th>Link</th>
+            </tr>
+            <tr>
+                <td>Math</td>
+                <td>Folder</td>
+                <td><a class="icon" href="https://drive.google.com/drive/folders/16poA9RBILj5hCa7EH9-C4rgnu4VeYigt" target="_blank">👁️</a></td>
+            </tr>
+            <tr>
+                <td>Differentiations</td>
+                <td>Folder</td>
+                <td><a class="icon" href="https://drive.google.com/drive/folders/15M6rftE8pygol7Ih6layr_Z-CCORF69u" target="_blank">👁️</a></td>
+            </tr>
+            <tr>
+                <td>File 1</td>
+                <td>PDF</td>
+                <td><a class="icon" href="https://drive.google.com/file/d/15YgMGLPBM2YBaTO8ywfC-jQcH-NLPTJS/view?usp=drivesdk" target="_blank">👁️</a></td>
+            </tr>
+            <tr>
+                <td>File 2</td>
+                <td>PDF</td>
+                <td><a class="icon" href="https://drive.google.com/file/d/15V_RC7CLRBRyTDUiMjpuIAEeTIWjWnOP/view?usp=drivesdk" target="_blank">👁️</a></td>
+            </tr>
+            <tr>
+                <td>Book</td>
+                <td>Folder</td>
+                <td><a class="icon" href="https://drive.google.com/drive/folders/1AFY8b7pJSee8joDnVEisY1qYTyjuCAHB" target="_blank">👁️</a></td>
+            </tr>
+            <tr>
+                <td>Calculus</td>
+                <td>PDF</td>
+                <td><a class="icon" href="https://drive.google.com/file/d/1xQ3rMTCPPutypHWVPPwItpCiFcH0pv4c/view?usp=drivesdk" target="_blank">👁️</a></td>
+            </tr>
+            <tr>
+                <td>Engineering Mathematics</td>
+                <td>PDF</td>
+                <td><a class="icon" href="https://drive.google.com/file/d/1CQN6KdykZU8j_rwjsS8mBxGfc1EnlNnq/view?usp=drivesdk" target="_blank">👁️</a></td>
+            </tr>
+            <tr>
+                <td>Functions</td>
+                <td>Folder</td>
+                <td><a class="icon" href="https://drive.google.com/drive/folders/1ACgNc5qWT-Eg3hi1m-734OP_P3ScRQuZ" target="_blank">👁️</a></td>
+            </tr>
+            <tr>
+                <td>Functions PDF</td>
+                <td>PDF</td>
+                <td><a class="icon" href="https://drive.google.com/file/d/1uAbBjFviosc6tVOh6w4Z4sdAmCFWKcXA/view?usp=drivesdk" target="_blank">👁️</a></td>
+            </tr>
+            <tr>
+                <td>Matrix</td>
+                <td>Folder</td>
+                <td><a class="icon" href="https://drive.google.com/drive/folders/1A0rB3PJpEKRUrdrn3YNdTVnpgfpveK10" target="_blank">👁️</a></td>
+            </tr>
+            <tr>
+                <td>Matrix Files</td>
+                <td>Images</td>
+                <td><a class="icon" href="https://drive.google.com/file/d/1ALxCjfvga1qL56J4us-qQDsDaa_nIT0b/view?usp=drivesdk" target="_blank">👁️</a></td>
+            </tr>
+            <tr>
+                <td>Advanced Engineering Mathematics</td>
+                <td>Image</td>
+                <td><a class="icon" href="https://drive.google.com/file/d/1AKgBbPiXx-Y48f5FEei_Ny-JnWsgNLEa/view?usp=drivesdk" target="_blank">👁️</a></td>
+            </tr>
+            <tr>
+                <td>3D Geometry</td>
+                <td>PDF</td>
+                <td><a class="icon" href="https://drive.google.com/file/d/1kX7-DXD1myEK4SJj1M13u6Gor2DRTFyk/view?usp=drivesdk" target="_blank">👁️</a></td>
+            </tr>
+            <tr>
+                <td>Gamma-Beta Function</td>
+                <td>PDF</td>
+                <td><a class="icon" href="https://drive.google.com/file/d/1-0khwCFpu1HmIiypu1Olne3KuoGeyPtu/view?usp=drivesdk" target="_blank">👁️</a></td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header">Physics</div>
+    <div class="card-content">
+        <table>
+            <tr>
+                <th>Topic</th>
+                <th>File Type</th>
+                <th>Link</th>
+            </tr>
+            <tr>
+                <td>Physics</td>
+                <td>Folder</td>
+                <td><a class="icon" href="https://drive.google.com/drive/folders/1K0mz5HHGkQUbBRP6OOifP-ZkKBoJ1RUC" target="_blank">👁️</a></td>
+            </tr>
+            <tr>
+                <td>Suggested Questions</td>
+                <td>PDF</td>
+                <td><a class="icon" href="https://drive.google.com/file/d/1VxURz1KfH2L2duk0FVB_2GNnioEuqQnw/view?usp=drivesdk" target="_blank">👁️</a></td>
+            </tr>
+            <tr>
+                <td>Thermodynamics + Wave Motion</td>
+                <td>PDF</td>
+                <td><a class="icon" href="https://drive.google.com/file/d/1wdhVAX-z-w-UdBgaZ7x2DxvCLcrATBSs/view?usp=drivesdk" target="_blank">👁️</a></td>
+            </tr>
+            <tr>
+                <td>Physics 101 (Elasticity)</td>
+                <td>PDF</td>
+                <td><a class="icon" href="https://drive.google.com/file/d/1-udk-j_oE9comS3IlllZjn7gVOnQfJK7/view?usp=drivesdk" target="_blank">👁️</a></td>
+            </tr>
+            <tr>
+                <td>Gamma-Beta Improper Double Integrals</td>
+                <td>PDF</td>
+                <td><a class="icon" href="https://drive.google.com/file/d/15064-ozLdo9sOUOXqE01FdfxIYahUZUh/view?usp=drivesdk" target="_blank">👁️</a></td>
+            </tr>
+            <tr>
+                <td>Pair of Straight Line</td>
+                <td>PDF</td>
+                <td><a class="icon" href="https://drive.google.com/file/d/1_mFpxd2Ql5iP8mc6zYFIvETxizzy-2iV/view?usp=drivesdk" target="_blank">👁️</a></td>
+            </tr>
+            <tr>
+                <td>Thermodynamics</td>
+                <td>PDF</td>
+                <td><a class="icon" href="https://drive.google.com/file/d/1jf5JgdCwAIFvDfYENALN8BU8aQCl6GbN/view?usp=drivesdk" target="_blank">👁️</a></td>
+            </tr>
+            <tr>
+                <td>Physics</td>
+                <td>PDF</td>
+                <td><a class="icon" href="https://drive.google.com/file/d/1rC7ZJM16uQ9VwbNEXeaUf1SnRggkxR7f/view?usp=drivesdk" target="_blank">👁️</a></td>
+
+            </tr>
+        </table>
+        <div class="card">
+    <div class="card-header">Human Biology</div>
+    <div class="card-content">
+    <h2>Human Biology</h2>
+<table>
+    <tr>
+        <th>Topic</th>
+        <th>File Type</th>
+        <th>Link</th>
+    </tr>
+    <tr>
+        <td>Human Biology</td>
+        <td>Folder</td>
+        <td><a href="https://drive.google.com/drive/folders/16nP7LskOX07hwsb2CRCJlEt3E17ta917">Link</a></td>
+    </tr>
+    <tr>
+        <td>All in One Human Biology</td>
+        <td>File</td>
+        <td><a href="https://drive.google.com/file/d/1PWZ4kQh7Dsc7gJsvSVZvCVV8E3ihgTXZ/view?usp=drivesdk">Link</a></td>
+    </tr>
+    <tr>
+        <td>Alimentary System</td>
+        <td>PDF</td>
+        <td><a href="https://drive.google.com/file/d/1Ix79zOp9fR_tgroRUgHePSCAYh5sfd_V/view?usp=drivesdk">Link</a></td>
+    </tr>
+    <tr>
+        <td>Homeostasis</td>
+        <td>PDF</td>
+        <td><a href="https://drive.google.com/file/d/1CcfCfj5mevOI_fo2LyiFb9vuFPjEMRKB/view?usp=drivesdk">Link</a></td>
+    </tr>
+    <tr>
+        <td>Endocrine System</td>
+        <td>PDF</td>
+        <td><a href="https://drive.google.com/file/d/18JMVeR5bDhIanEKNPfZkJI_dI1ZFOR54/view?usp=drivesdk">Link</a></td>
+    </tr>
+    <tr>
+        <td>Homeostasis</td>
+        <td>PDF</td>
+        <td><a href="https://drive.google.com/file/d/1cD9L2cXYOhAUUWL6ecShTl5cQVDm2gY6/view?usp=drivesdk">Link</a></td>
+    </tr>
+    <tr>
+        <td>Human Biology</td>
+        <td>PDF</td>
+        <td><a href="https://drive.google.com/file/d/1zyPWQzKyF2Tx0idomxv-oBHXnknTOupo/view?usp=drivesdk">Link</a></td>
+    </tr>
+    <tr>
+        <td>Lecture 22</td>
+        <td>PDF</td>
+        <td><a href="https://drive.google.com/file/d/14aldBreYMtRf8_5BZxqdovgnV88B_C24/view?usp=drivesdk">Link</a></td>
+    </tr>
+    <tr>
+        <td>Lecture 6</td>
+        <td>PDF</td>
+        <td><a href="https://drive.google.com/file/d/1B_pxVxQP7AsbzHe29R0_Cf7hYH80Vqxg/view?usp=drivesdk">Link</a></td>
+    </tr>
+    <tr>
+        <td>Lecture 2</td>
+        <td>PDF</td>
+        <td><a href="https://drive.google.com/file/d/1CZ2u8mhXWTT2vOxPCFOZWm4bzdcVrqpB/view?usp=drivesdk">Link</a></td>
+    </tr>
+    <tr>
+        <td>Lecture 15</td>
+        <td>PDF</td>
+        <td><a href="https://drive.google.com/file/d/1CjFC0s0eXa5Wl0uoDaZtVEgtx1MSJw6-/view?usp=drivesdk">Link</a></td>
+    </tr>
+    <tr>
+        <td>Lecture 18</td>
+        <td>PDF</td>
+        <td><a href="https://drive.google.com/file/d/1IKSvBP1S2nQAD7i2HFioedQrzxzpAtKC/view?usp=drivesdk">Link</a></td>
+    </tr>
+    <tr>
+        <td>Lecture 13</td>
+        <td>PDF</td>
+        <td><a href="https://drive.google.com/file/d/1KV6z1adVlnRvdwAyE4scsX2dZ0kID6Ui/view?usp=drivesdk">Link</a></td>
+    </tr>
+    <tr>
+        <td>Lecture 8</td>
+        <td>PDF</td>
+        <td><a href="https://drive.google.com/file/d/1OOVs4Vl-ckyfLFXu8soCOylofTqWBH7b/view?usp=drivesdk">Link</a></td>
+    </tr>
+    <tr>
+        <td>Lecture 16</td>
+        <td>PDF</td>
+        <td><a href="https://drive.google.com/file/d/1PT61XWqu8YHi0GL-v1_EQLsMCuE5NNk4/view?usp=drivesdk">Link</a></td>
+    </tr>
+    <tr>
+        <td>Lecture 12</td>
+        <td>PDF</td>
+        <td><a href="https://drive.google.com/file/d/1RhYFCkmaoUipoyIxlW_Cv8Y79JU3Z6HY/view?usp=drivesdk">Link</a></td>
+    </tr>
+    <tr>
+        <td>Lecture 7</td>
+        <td>PDF</td>
+        <td><a href="https://drive.google.com/file/d/1TvVnD5ryipbbLw-vwXSR2GLtz380spbV/view?usp=drivesdk">Link</a></td>
+    </tr>
+    <tr>
+        <td>Lecture 1</td>
+        <td>PDF</td>
+        <td><a href="https://drive.google.com/file/d/1UvzgmUlZsX1hV4gkTBOgHlYERjNlxLrd/view?usp=drivesdk">Link</a></td>
+    </tr>
+    <tr>
+        <td>Lecture 11</td>
+        <td>PDF</td>
+        <td><a href="https://drive.google.com/file/d/1X-j3Q6mpTsl8ZGu_wQ9gbiLuBjWJArvs/view?usp=drivesdk">Link</a></td>
+    </tr>
+    <tr>
+        <td>Lecture 10</td>
+        <td>PDF</td>
+        <td><a href="https://drive.google.com/file/d/1dnLLQkdtlTcyqcwlZ0aXYa8cFMgKCiDZ/view?usp=drivesdk">Link</a></td>
+    </tr>
+    <tr>
+        <td>Lecture 21</td>
+        <td>PDF</td>
+        <td><a href="https://drive.google.com/file/d/1fdWb6MJ3ExN35G8Z5zNQE8xvFtc9k_66/view?usp=drivesdk">Link</a></td>
+    </tr>
+    <tr>
+        <td>Lecture 9</td>
+        <td>PDF</td>
+        <td><a href="https://drive.google.com/file/d/1feXiTr3uhBgUftEmp8LRuIUILkF0os1H/view?usp=drivesdk">Link</a></td>
+    </tr>
+    <tr>
+        <td>Lecture 4</td>
+        <td>PDF</td>
+        <td><a href="https://drive.google.com/file/d/1jgDFc4X-pR64tM8JqnHJNI5Hn0rOBkOk/view?usp=drivesdk">Link</a></td>
+    </tr>
+    <tr>
+        <td>Lecture 17</td>
+        <td>PDF</td>
+        <td><a href="https://drive.google.com/file/d/1k5_EGVwmSdyTZToid5yjQzjAjFE7f3Se/view?usp=drivesdk">Link</a></td>
+    </tr>
+    <tr>
+        <td>Lecture 5</td>
+        <td>PDF</td>
+        <td><a href="https://drive.google.com/file/d/1phhpRI_VIYGyViqSyEo-WOMDH-q9ySwY/view?usp=drivesdk">Link</a></td>
+    </tr>
+    <tr>
+        <td>Lecture 3</td>
+        <td>PDF</td>
+        <td><a href="https://drive.google.com/file/d/1q3NeuqJUODRV9Qzl48Gb8lBXMWF1wPao/view?usp=drivesdk">Link</a></td>
+    </tr>
+    <tr>
+        <td>Lecture 20</td>
+        <td>PDF</td>
+        <td><a href="https://drive.google.com/file/d/1vpBl9k4Zu3AksVJR1fddk07avQUon9sO/view?usp=drivesdk">Link</a></td>
+    </tr>
+    <tr>
+        <td>Lecture 14</td>
+        <td>PDF</td>
+        <td><a href="https://drive.google.com/file/d/1xUUHbsF47tea5w80mMe-5tNg2C1r3O1D/view?usp=drivesdk">Link</a></td>
+    </tr>
+    <tr>
+        <td>Lecture 19</td>
+        <td>PDF</td>
+        <td><a href="https://drive.google.com/file/d/1z5vvYHmVHAEkCpux_GdwdyjagUaf2EEr/view?usp=drivesdk">Link</a></td>
+    </tr>
+</table>
+
+<h2>Human Nutrition</h2>
+<table>
+    <tr>
+        <th>Topic</th>
+        <th>File Type</th>
+        <th>Link</th>
+    </tr>
+    <tr>
+        <td>Human Nutrition</td>
+        <td>Folder</td>
+        <td><a href="https://drive.google.com/drive/folders/1aHXFdnmco8Hv4nMs-UC2dD_nNiUNEdrg">Link</a></td>
+    </tr>
+    <tr>
+        <td>All In One Human Nutrition</td>
+        <td>PDF</td>
+        <td><a href="https://drive.google.com/file/d/1P_dYZRqVsqQcKIy5pr97w6M2nz3QWKNU/view?usp=drivesdk">Link</a></td>
+    </tr>
+</table>
+
+        <table>
+    </div>
+</div>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Subject Table</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+        select {
+            padding: 10px;
+            font-size: 16px;
+        }
+        .table-container {
+            perspective: 1000px;
+            margin-top: 20px;
+        }
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            transform-style: preserve-3d;
+            transition: transform 0.5s;
+            background-color: rgba(255, 255, 255, 0.8); /* Transparent background */
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* 3D shadow */
+        }
+        .table td, .table th {
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            padding: 10px;
+            text-align: left;
+            transition: transform 0.5s;
+        }
+        .table:hover {
+            transform: rotateY(10deg);
+        }
+    </style>
+</head>
+<body>
+
+    <h1 id="subject-title">Select a Subject</h1>
+    <select id="subject-select" onchange="updateTable()">
+        <option value="" disabled selected>Select a subject</option>
+        <option value="Applied Nutrition">Applied Nutrition</option>
+        <option value="Basic Electrical and Electronic Engineering">Basic Electrical and Electronic Engineering</option>
+        <option value="Engineering Drawing">Engineering Drawing</option>
+        <option value="General Microbiology">General Microbiology</option>
+        <option value="Organic Chemistry">Organic Chemistry</option>
+        <option value="Technology in Food Preservation">Technology in Food Preservation</option>
+    </select>
+
+    <div class="table-container">
+        <table class="table" id="data-table">
+            <thead>
+                <tr>
+                    <th>File Name</th>
+                    <th>Type</th>
+                    <th>Link</th>
+                </tr>
+            </thead>
+            <tbody id="table-body">
+                <!-- Dynamic content will be added here -->
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        const data = {
+            "Applied Nutrition": [
+                { name: "Folder", type: "Folder", link: "https://drive.google.com/drive/folders/1V2LQk0Z7Ql1AVBzPAQ2SzZN1LCpBLqqK" },
+                { name: "body-weight lab report.pdf", type: "File", link: "https://drive.google.com/file/d/1zTQs1y6cOkNrVEMdyvW7eIV9hfP5U6TF/view?usp=drivesdk" },
+                { name: "APN Lab report 201[279].pdf", type: "File", link: "https://drive.google.com/file/d/1NdS_hKWxmkc7IH7DC_OOHSPwA5uTRLIO/view?usp=drivesdk" },
+                { name: "Food intake-1.pdf", type: "File", link: "https://drive.google.com/file/d/11hdwAXhAfLw3BDQIRYI9EnAl-G0R8N9D/view?usp=drivesdk" },
+                { name: "Applied Nutrition.pdf", type: "File", link: "https://drive.google.com/file/d/1IK5ohERllm2D4apdeyrWU0YoXx2gu5bW/view?usp=drivesdk" },
+                { name: "Assessing Nutritional status pdf-1.pdf", type: "File", link: "https://drive.google.com/file/d/1Rd8uhTxnB52OsL15eX7Sgk4TzWw8KRrc/view?usp=drivesdk" },
+                { name: "nutritional assessmentChap32-v2-1.pdf", type: "File", link: "https://drive.google.com/file/d/1_kAYRhy3ItRBPP5jpkougp15EzYKbuR1/view?usp=drivesdk" },
+                { name: "nutrisurvey-1.pdf", type: "File", link: "https://drive.google.com/file/d/19kCSliYapQUpwGA_8wD2Ha6Q9tRCZpA3/view?usp=drivesdk" },
+                { name: "micro nutrient pdf-1.pdf", type: "File", link: "https://drive.google.com/file/d/12lljA8EjrtxHL9VJ5To9QtUlfAB7B_F8/view?usp=drivesdk" },
+                { name: "anthropometry.pdf", type: "File", link: "https://drive.google.com/file/d/1p7YaK1rTTWa0_jCX0gjl4h1tVR1u_Gg2/view?usp=drivesdk" },
+                { name: "FOOD AND NUTRITION ASSISTANCE IN EMERGENCIES -Recovered-.pdf", type: "File", link: "https://drive.google.com/file/d/1GABvLporlb-2Nph8-x8uDqkiM0R1aZdH/view?usp=drivesdk" },
+                { name: "Food intake.pdf", type: "File", link: "https://drive.google.com/file/d/1-QYtrSjHS5nAWCTAm70LNgSQjDH_ncsk/view?usp=drivesdk" }
+            ],
+            "Basic Electrical and Electronic Engineering": [
+                { name: "Folder", type: "Folder", link: "https://drive.google.com/drive/folders/15-0XwRPAaVrCvz2K3z8U7yIf-LSBU4J1" },
+                { name: "Transformer.pdf", type: "File", link: "https://drive.google.com/file/d/1cPA93jIIZZ6h0zlmiPxc4Ovstk9I74BV/view?usp=drivesdk" },
+                { name: "characteristics of common Base connection sheet", type: "File", link: "https://drive.google.com/file/d/1c7KFtQatjiUqx7D74rWXxTQH6Hx16A68/view?usp=drivesdk" },
+                { name: "transistor sheet", type: "File", link: "https://drive.google.com/file/d/1bzoz9hNZBe8OTsCTd4dj_Q24redNCih9/view?usp=drivesdk" },
+                { name: "DOC-20230810-WA0178.", type: "File", link: "https://drive.google.com/file/d/1cHgGuTbxqDHSElDTIOR-vhLmFCDwMBDy/view?usp=drivesdk" },
+                { name: "EEE_12_Batch_1st_Part", type: "File", link: "https://drive.google.com/file/d/11dI_L7e8JPCq_Ef52ibGHS_qxmxwuWzj/view?usp=drivesdk" },
+                { name: "EEE_12 Batch_2nd Part.pdf", type: "File", link: "https://drive.google.com/file/d/1is2AW5sS01-c7UTC5EATQnw0VPht6Xx8/view?usp=drivesdk" },
+                { name: "(extra note)EEE-1105-MID-Circuit-Solution.pdf", type: "File", link: "https://drive.google.com/file/d/1JNd6d79ziKU1ChZ6ekJniTpQAMV3joht/view?usp=drivesdk" },
+                { name: "(extra note) EEE-1105-MID-Theory.pdf", type: "File", link: "https://drive.google.com/file/d/1lkKdwWH6yyCrMafEuBjKLGojV0_1I-zJ/view?usp=drivesdk" },
+                { name: "(extra note)EEE-1105-FINAL-NOTE+CKT+AUT-SPR-15-AUT-14.pdf", type: "File", link: "https://drive.google.com/file/d/12BYrGO0yWyFrSezm4uurGrpkquGIFEez/view?usp=drivesdk" },
+                { name: "EEE Note.pdf", type: "File", link: "https://drive.google.com/file/d/1ef5m9VqidFIYVeS8jddAxYh9LMKIAGMz/view?usp=drivesdk" },
+                { name: "EEE lab report 201.pdf", type: "File", link: "https://drive.google.com/file/d/1eH3S94cYk12-YmTKy32jQEYIK3UGFYq4/view?usp=drivesdk" }
+            ],
+            "Engineering Drawing": [
+                { name: "Folder", type: "Folder", link: "https://drive.google.com/drive/folders/1F4YBy9" },
+                { name: "ENG Drawing Assign 1-2 -No. 16 PDF-1.pdf", type: "File", link: "https://drive.google.com/file/d/1FEs1yJLo-eMz5Dih2VzHc75u21jZSHD5/view?usp=drivesdk" },
+                { name: "eng drawing assignment 2 -_isometric.pdf", type: "File", link: "https://drive.google.com/file/d/1up3Ythz_3gK-LbId5frgPP5SPLxFlG2G/view?usp=drivesdk" },
+                { name: "ENG Drawing assignment 3", type: "File", link: "https://drive.google.com/file/d/1mJwLnAVB5FK07cAifKCMtqOasTyOiRa6/view?usp=drivesdk" },
+                { name: "ENG Drawing assignment 4.pdf", type: "File", link: "https://drive.google.com/file/d/1ljgG5k6h2J7qZpuJveF4JpA-WsF25YQA/view?usp=drivesdk" },
+                { name: "ENG Drawing assigment 5.pdf", type: "File", link: "https://drive.google.com/file/d/1DLfJwknRfBN8ZsA7zgt0K_pDQ4vRUxD8/view?usp=drivesdk" }
+            ],
+            "General Microbiology": [
+                { name: "Folder", type: "Folder", link: "https://drive.google.com/drive/folders/1K0FzlgM3J1wYABTz0K9U8BZ6nx05M0Yx" },
+                { name: "INTRODUCTION TO MICROBES.pdf", type: "File", link: "https://drive.google.com/file/d/1gLg71l2jJHchv3PjUJzE9u4_7F8t5NNd/view?usp=drivesdk" },
+                { name: "METHODS OF MICROBIOLOGY.pdf", type: "File", link: "https://drive.google.com/file/d/1lm9pGuQGiqaQjzNcPe8F0RkZP75PxyG/view?usp=drivesdk" },
+                { name: "BACTERIA -The Good and Bad.pdf", type: "File", link: "https://drive.google.com/file/d/1XxOG2fAtbUmUOE-GGV4EmGofbTzOVM7c/view?usp=drivesdk" },
+                { name: "HUMAN MICROBIOME.pdf", type: "File", link: "https://drive.google.com/file/d/1ntc5R4oYCS-rAT3uGRxi-ZwrKydVxds/view?usp=drivesdk" },
+                { name: "MICROBES AND DISEASES.pdf", type: "File", link: "https://drive.google.com/file/d/1B3LzOtYNco5KrTof6G9x8Iz8_J4OCr7t/view?usp=drivesdk" }
+            ],
+            "Organic Chemistry": [
+                { name: "Folder", type: "Folder", link: "https://drive.google.com/drive/folders/1xqXjMheMndyYAE4ysucU4oMr5OMQUwBs" },
+                { name: "carbonyl comp.pdf", type: "File", link: "https://drive.google.com/file/d/12E4SQwWFMgkF7qAXq5yG9LrTMSIrTQfW/view?usp=drivesdk" },
+                { name: "organic compounds.pdf", type: "File", link: "https://drive.google.com/file/d/1ByWzLgiICIfZlUulPSUDGQYFGwxN7KxS/view?usp=drivesdk" },
+                { name: "aldehydes and ketones.pdf", type: "File", link: "https://drive.google.com/file/d/12E4SQwWFMgkF7qAXq5yG9LrTMSIrTQfW/view?usp=drivesdk" },
+                { name: "organic reaction mechanisms.pdf", type: "File", link: "https://drive.google.com/file/d/1ByWzLgiICIfZlUulPSUDGQYFGwxN7KxS/view?usp=drivesdk" },
+                { name: "aromatic compounds.pdf", type: "File", link: "https://drive.google.com/file/d/1ByWzLgiICIfZlUulPSUDGQYFGwxN7KxS/view?usp=drivesdk" }
+            ],
+            "Technology in Food Preservation": [
+                { name: "Folder", type: "Folder", link: "https://drive.google.com/drive/folders/1w54_NGZ0HdnWKeW3wJs9AzF7wHbfsXY2" },
+                { name: "Canning.pdf", type: "File", link: "https://drive.google.com/file/d/1CrgLt5p4wPExdyQQg0b6czGLCqMGBcR3/view?usp=drivesdk" },
+                { name: "Dehydration.pdf", type: "File", link: "https://drive.google.com/file/d/1CZj43RT-KtI2sh9P1u1X5c10RY7u4MCs/view?usp=drivesdk" },
+                { name: "Freezing.pdf", type: "File", link: "https://drive.google.com/file/d/1mC6fT0Q5T9LlGBf8SPwENP5RL9FDS1aW/view?usp=drivesdk" },
+                { name: "Pasteurization.pdf", type: "File", link: "https://drive.google.com/file/d/1D7aGJh1M9kMndR5uY8ICeuyBiyLkGivB/view?usp=drivesdk" },
+                { name: "smoking.pdf", type: "File", link: "https://drive.google.com/file/d/1ivsz9rD8M6FXHdxqzZm38zFUM9QnMr8t/view?usp=drivesdk" }
+            ]
+        };
+
+        function updateTable() {
+            const select = document.getElementById("subject-select");
+            const subject = select.value;
+            const title = document.getElementById("subject-title");
+            const tableBody = document.getElementById("table-body");
+
+            title.innerText = subject;
+            tableBody.innerHTML = ""; // Clear previous table content
+
+            if (data[subject]) {
+                data[subject].forEach(item => {
+                    const row = document.createElement("tr");
+                    row.innerHTML = `
+                        <td>${item.name}</td>
+                        <td>${item.type}</td>
+                        <td><a href="${item.link}" target="_blank">View PDF</a></td>
+                    `;
+                    tableBody.appendChild(row);
+                });
+            }
+        }
+    </script>
+
+</body>
+</html>

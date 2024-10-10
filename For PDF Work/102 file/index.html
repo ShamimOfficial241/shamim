@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Animated Tables</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #f4f4f4;
+            font-family: 'Arial', sans-serif;
+        }
+
+        h1 {
+            margin-top: 20px;
+        }
+
+        @keyframes colorChange {
+            0% { background-color: #4CAF50; }
+            25% { background-color: #2196F3; }
+            50% { background-color: #FF9800; }
+            75% { background-color: #f44336; }
+            100% { background-color: #4CAF50; }
+        }
+
+        .table-container {
+            perspective: 1000px;
+            margin: 20px;
+        }
+
+        .table {
+            width: 80%;
+            margin: auto;
+            border-collapse: collapse;
+            background: white;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transform: rotateY(0);
+            transition: transform 0.5s;
+        }
+
+        .table:hover {
+            transform: rotateY(5deg);
+        }
+
+        .table th {
+            padding: 12px;
+            text-align: center;
+            animation: colorChange 4s infinite; /* Change duration as needed */
+            color: white;
+        }
+
+        .table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: center;
+        }
+
+        .table td a {
+            text-decoration: none;
+            color: #4CAF50;
+        }
+
+        .eye-icon {
+            font-size: 20px;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Subject Tables</h1>
+
+    <!-- Food Engineering Table -->
+    <div class="table-container">
+        <h2>Food Engineering</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>File Name</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Food Engineering Folder</td>
+                    <td><a href="https://drive.google.com/drive/folders/14-YWQCcCwmDFQTATigzV3f1arieMOFst" target="_blank">👁️</a></td>
+                </tr>
+                <tr>
+                    <td>Lecture 10.pdf</td>
+                    <td><a href="https://drive.google.com/file/d/1H7gxQansnePXtx-Vxvr65rCtSOyEbH9T/view?usp=drivesdk" target="_blank">👁️</a></td>
+                </tr>
+                <tr>
+                    <td>Lecture 6-10.pdf</td>
+                    <td><a href="https://drive.google.com/file/d/1GGJh6swmkhzqHvUGxqC8CVFNSL_2GqjB/view?usp=drivesdk" target="_blank">👁️</a></td>
+                </tr>
+                <tr>
+                    <td>FFE note (1).pdf</td>
+                    <td><a href="https://drive.google.com/file/d/1GAg2Il18Y9YCIQY4r8WpjEl78WNnC_Ft/view?usp=drivesdk" target="_blank">👁️</a></td>
+                </tr>
+                <tr>
+                    <td>Lecture 11-12 FFE.pdf</td>
+                    <td><a href="https://drive.google.com/file/d/1sK2sTZCJietkuyxdH0bK6VCeG8Yps_vv/view?usp=drivesdk" target="_blank">👁️</a></td>
+                </tr>
+                <tr>
+                    <td>Sheet-(01-05)</td>
+                    <td><a href="https://drive.google.com/file/d/1OfPNyc7kVP48uUz1Ku2LItOWEEEQv0m3/view?usp=drivesdk" target="_blank">👁️</a></td>
+                </tr>
+                <tr>
+                    <td>Food operation Engineering (chapter 1-3).pdf</td>
+                    <td><a href="https://drive.google.com/file/d/148XE1jl3UJHgV6viza7U9e17mhabQJPP/view?usp=drivesdk" target="_blank">👁️</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- ICS Table -->
+    <div class="table-container">
+        <h2>ICS</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>File Name</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>ICS Folder</td>
+                    <td><a href="https://drive.google.com/drive/folders/1LVfYjn-SA_G3eHrEWgghPbjTyRHbZydI" target="_blank">👁️</a></td>
+                </tr>
+                <tr>
+                    <td>1.pdf</td>
+                    <td><a href="https://drive.google.com/file/d/1OrzUjOKc50Vums-TPSUTzRSYchMQje6l/view?usp=drivesdk" target="_blank">👁️</a></td>
+                </tr>
+                <tr>
+                    <td>2.pdf</td>
+                    <td><a href="https://drive.google.com/file/d/1Oq6JMnibpDUpgA3wtfQIy5MwIEMKNRya/view?usp=drivesdk" target="_blank">👁️</a></td>
+                </tr>
+                <tr>
+                    <td>3.pdf</td>
+                    <td><a href="https://drive.google.com/file/d/1OnPYCZ4XyJhDFzCI5C34f0EYw2Nu-6iA/view?usp=drivesdk" target="_blank">👁️</a></td>
+                </tr>
+                <tr>
+                    <td>ICS.pdf</td>
+                    <td><a href="https://drive.google.com/file/d/1TmYc_SMgGweIS5WpVubY38cZlaG9Tc-q/view?usp=drivesdk" target="_blank">👁️</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Math Table -->
+    <div class="table-container">
+        <h2>Math</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>File Name</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Math Folder</td>
+                    <td><a href="https://drive.google.com/drive/folders/18i4JTuhmboFVhwbe634uFU8MPT38lMzD" target="_blank">👁️</a></td>
+                </tr>
+                <tr>
+                    <td>3.4</td>
+                    <td><a href="https://drive.google.com/file/d/1L8AwjKlYtC9NbS3VBy2JuUetqaYctWvh/view?usp=drivesdk" target="_blank">👁️</a></td>
+                </tr>
+                <tr>
+                    <td>3.2</td>
+                    <td><a href="https://drive.google.com/file/d/1L90DLd2HYLdPJtoE2aJlph3cfigY0LQz/view?usp=drivesdk" target="_blank">👁️</a></td>
+                </tr>
+                <tr>
+                    <td>7. Vectors.pdf</td>
+                    <td><a href="https://drive.google.com/file/d/1L4ZMGBkYjO6eSD1puGcZP1QqxE3w9NMs/view?usp=drivesdk" target="_blank">👁️</a></td>
+                </tr>
+                <tr>
+                    <td>3.1</td>
+                    <td><a href="https://drive.google.com/file/d/1V2k-I0Hc0tDCzuovOW88bAc7hwyZL3J5/view?usp=drivesdk" target="_blank">👁️</a></td>
+                </tr>
+                <tr>
+                    <td>6. Fourier Series.pdf</td>
+                    <td><a href="https://drive.google.com/file/d/1xN-_9_0gmeTuBcWq2f9OHm0_kV2l34kp/view?usp=drivesdk" target="_blank">👁️</a></td>
+                </tr>
+                <tr>
+                    <td>5. LDE 2nd and Higher Order</td>
+                    <td><a href="https://drive.google.com/file/d/1ymIoYEEcjjbPtWXa0pzlAYUEFDcNsVac/view?usp=drivesdk" target="_blank">👁️</a></td>
+                </tr>
+                <tr>
+                    <td>4. Differential Equation</td>
+                    <td><a href="https://drive.google.com/file/d/1yihCMEZIWI9RkdZRlNVugYL7koc0vBuY/view?usp=drivesdk" target="_blank">👁️</a></td>
+                </tr>
+                <tr>
+                    <td>3. Interpolation.pdf</td>
+                    <td><a href="https://drive.google.com/file/d/1V-3GchtmbG7pey5tat3CW29nKAf66oW1/view?usp=drivesdk" target="_blank">👁️</a></td>
+                </tr>
+                <tr>
+                    <td>1. Errors in Numerical Analysis.pdf</td>
+                    <td><a href="https://drive.google.com/file/d/1Uu81HOqE3hna06LYpKBD4P6QrvujhDOz/view?usp=drivesdk" target="_blank">👁️</a></td>
+                </tr>
+                <tr>
+                    <td>2. Solution of Algebraic & Transcendental Equations.pdf</td>
+                    <td><a href="https://drive.google.com/file/d/1UqpVPaIQ0igXv7Tat4C7aV_UlhVl8zxK/view?usp=drivesdk" target="_blank">👁️</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Physics Table -->
+    <div class="table-container">
+        <h2>Physics 102</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>File Name</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Physics 102 Folder</td>
+                    <td><a href="https://drive.google.com/drive/folders/1n3rvAQwqquneWehPa9qlUxfHdGu799xK" target="_blank">👁️</a></td>
+                </tr>
+                <tr>
+                    <td>Physics 103 Sheets</td>
+                    <td><a href="https://drive.google.com/drive/folders/1nJ2Pj7s0PjfSCLZwA_ajdhAgCyRHHGMd" target="_blank">👁️</a></td>
+                </tr>
+                <tr>
+                    <td>Physics Slides PDF 102.pdf</td>
+                    <td><a href="https://drive.google.com/file/d/1Aky1Q2JFdjXnnKGoZjIq_ZPFP6OAruNN/view?usp=drivesdk" target="_blank">👁️</a></td>
+                </tr>
+                <tr>
+                    <td>Physics 105 Slide</td>
+                    <td><a href="https://drive.google.com/drive/folders/1nBvb0D4KneqCyvO0tgRAi8jvulNSbjLM" target="_blank">👁️</a></td>
+                </tr>
+                <tr>
+                    <td>Physics Slides PDF 102.pdf</td>
+                    <td><a href="https://drive.google.com/file/d/1nQO6Ivoeo1rCyC-vF8mm8wjCcXS7oOnC/view?usp=drivesdk" target="_blank">👁️</a></td>
+                </tr>
+                <tr>
+                    <td>Recommended Book</td>
+                    <td><a href="https://drive.google.com/drive/folders/1nAwGLQgNKKy0yJdRTIncgPoD7m_5WjZy" target="_blank">👁️</a></td>
+                </tr>
+                <tr>
+                    <td>pdfcoffee.com_vk-mehta-principles-of-electronics--pdf-free.pdf</td>
+                    <td><a href="https://drive.google.com/file/d/1nNUqz43flayf1zZcvsSwyX8AsE0cfAR8/view?usp=drivesdk" target="_blank">👁️</a></td>
+                </tr>
+                <tr>
+                    <td>arthur-beiser-concepts-of-modern-physics-2003.pdf</td>
+                    <td><a href="https://drive.google.com/file/d/1nJPM6s-ayRgH26FcqDLvomdKk2iqbZrK/view?usp=drivesdk" target="_blank">👁️</a></td>
+                </tr>
+                <tr>
+                    <td>20221212_141550.jpg</td>
+                    <td><a href="https://drive.google.com/file/d/1mhFqmpUonYn1jT5SyCk1-mvWcFUUA6af/view?usp=drivesdk" target="_blank">👁️</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Bio Chemistry Table -->
+    <div class="table-container">
+        <h2>Bio Chemistry</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>File Name</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Bio Chemistry Folder</td>
+                    <td><a href="https://drive.google.com/drive/folders/14lccKE20YYFIa8H5m-aWorSrMV9XnVRU" target="_blank">👁️</a></td>
+                </tr>
+                <tr>
+                    <td>8) Metabolism.pdf</td>
+                    <td><a href="https://drive.google.com/file/d/1PJSh4eVX2TtgGTJ-UNcxu0IQ_RNU6Nzy/view?usp=drivesdk" target="_blank">👁️</a></td>
+                </tr>
+                <tr>
+                    <td>Biochemistry.pdf</td>
+                    <td><a href="https://drive.google.com/file/d/15c_qYRQqDwsi15ji9eMzdRe-Rm2oBlRr/view?usp=drivesdk" target="_blank">👁️</a></td>
+                </tr>
+                <tr>
+                    <td>BCM practical for FST 29.08.22.pdf</td>
+                    <td><a href="https://drive.google.com/file/d/1HvbjPx64SleXwWdA4Vix6W_HE_P5_3wz/view?usp=drivesdk" target="_blank">👁️</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Physical Chemistry Table -->
+    <div class="table-container">
+        <h2>Physical Chemistry</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>File Name</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Physical Chemistry Folder</td>
+                    <td><a href="https://drive.google.com/drive/folders/14HgXOtyFGQVrK3HN7szijJ-hE1cXnYWB" target="_blank">👁️</a></td>
+                </tr>
+                <tr>
+                    <td>Physical Chemistry.pdf</td>
+                    <td><a href="https://drive.google.com/file/d/1lfxTL_BWjgBYVI6t9stBHEWCpqaZk7D_/view?usp=drivesdk" target="_blank">👁️</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>

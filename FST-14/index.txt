@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Database Sheet</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(45deg, #0f0, #fff);
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .card {
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.2s;
+        }
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 6px 30px rgba(0, 0, 0, 0.3);
+        }
+        .card h2 {
+            margin: 0 0 10px;
+            font-size: 18px;
+        }
+        .search-container {
+            margin-bottom: 20px;
+        }
+        .search-input {
+            padding: 10px;
+            width: 100%;
+            border: 2px solid #333;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="search-container">
+        <input type="text" class="search-input" id="searchInput" placeholder="Search by name...">
+    </div>
+
+    <div class="container" id="dataContainer">
+        <div class="card">
+            <h2>Mirza Mahfuz Hasan Akash</h2>
+            <p><strong>Address:</strong> Mansree, Maghan, Mohangonj, Netrokona, Mymensingh</p>
+            <p><strong>College:</strong> Notre Dame College Mymensingh</p>
+            <p><strong>Blood Group:</strong> O+</p>
+            <p><strong>Mobile:</strong> 1609764965</p>
+        </div>
+
+        <div class="card">
+            <h2>Sumaiya Akter</h2>
+            <p><strong>Address:</strong> Netrokona</p>
+            <p><strong>College:</strong> Royal Media College, Mymensingh</p>
+            <p><strong>Blood Group:</strong> A+</p>
+            <p><strong>Mobile:</strong> Hidden</p>
+        </div>
+
+        <div class="card">
+            <h2>Sayed Hossen Rony</h2>
+            <p><strong>Address:</strong> Baro Quarter, Pahartali</p>
+            <p><strong>College:</strong> Cambrian College, Ctg</p>
+            <p><strong>Blood Group:</strong> O+</p>
+            <p><strong>Mobile:</strong> 1939229752</p>
+        </div>
+
+        <div class="card">
+            <h2>Shilpa Sur</h2>
+            <p><strong>Address:</strong> 16 No Shakhari Bazar, Dhaka - 1100</p>
+            <p><strong>College:</strong> Dhaka Mohanogor Mohila College</p>
+            <p><strong>Blood Group:</strong> O+</p>
+            <p><strong>Mobile:</strong> Hidden</p>
+        </div>
+
+        <div class="card">
+            <h2>Md Zobaidul Hoque Sourav</h2>
+            <p><strong>Address:</strong> West Ujantia, Ujantia, Pekua, Cox’s Bazar</p>
+            <p><strong>College:</strong> Bakalia Govt. College</p>
+            <p><strong>Blood Group:</strong> O+</p>
+            <p><strong>Mobile:</strong> 1888637520</p>
+        </div>
+
+        <div class="card">
+            <h2>MD ALI AKASH</h2>
+            <p><strong>Address:</strong> Segun Bagan 5 No Line, Khulshi, Chattogram</p>
+            <p><strong>College:</strong> Uttar Kattaly Alhaj Mostafa Hakim Degree College</p>
+            <p><strong>Blood Group:</strong> A+</p>
+            <p><strong>Mobile:</strong> 1866651347</p>
+        </div>
+
+        <div class="card">
+            <h2>Md Jaber</h2>
+            <p><strong>Address:</strong> Khulna</p>
+            <p><strong>College:</strong> Shundorbon Shorkari Adorsho College Khulna</p>
+            <p><strong>Blood Group:</strong> A+</p>
+            <p><strong>Mobile:</strong> 1312333002</p>
+        </div>
+
+        <div class="card">
+            <h2>ABU HURYRA TALHA</h2>
+            <p><strong>Address:</strong> BAY, MYMENSINGH</p>
+            <p><strong>College:</strong> SIM SHAHABUDDIN DEGREE COLLEGE</p>
+            <p><strong>Blood Group:</strong> B+</p>
+            <p><strong>Mobile:</strong> 1643970771</p>
+        </div>
+
+        <div class="card">
+            <h2>Diba Dhar</h2>
+            <p><strong>Address:</strong> Rangunia, Chittagong</p>
+            <p><strong>College:</strong> CUET College</p>
+            <p><strong>Blood Group:</strong> O+</p>
+            <p><strong>Mobile:</strong> Hidden</p>
+        </div>
+
+        <div class="card">
+            <h2>MST KULSUM JAHAN</h2>
+            <p><strong>Address:</strong> Dinajpur</p>
+            <p><strong>College:</strong> Ranigonj Ehia Hossain High School And College</p>
+            <p><strong>Blood Group:</strong> B+</p>
+            <p><strong>Mobile:</strong> Hidden</p>
+        </div>
+
+        <div class="card">
+            <h2>Sadia Rahman Ifti</h2>
+            <p><strong>Address:</strong> 345/28, Shimultuli, Salna Road, Joydebpur, Gazipur</p>
+            <p><strong>College:</strong> Gazipur Cantonment College</p>
+            <p><strong>Blood Group:</strong> AB+</p>
+            <p><strong>Mobile:</strong> Hidden</p>
+        </div>
+
+        <div class="card">
+            <h2>Talha bin Taher</h2>
+            <p><strong>Address:</strong> Bakaliya, Chawkbajar, Chattogram</p>
+            <p><strong>College:</strong> Chittagong College</p>
+            <p><strong>Blood Group:</strong> A+</p>
+            <p><strong>Mobile:</strong> 1858600561</p>
+        </div>
+
+        <div class="card">
+            <h2>Ayan Majumder</h2>
+            <p><strong>Address:</strong> Deuatala, Danatala, Morrelgang, Bagerhat</p>
+            <p><strong>College:</strong> Govt. P.C. College</p>
+            <p><strong>Blood Group:</strong> B+</p>
+            <p><strong>Mobile:</strong> 01704-381741</p>
+        </div>
+
+        <div class="card">
+            <h2>Akash Shill</h2>
+            <p><strong>Address:</strong> Karnaphuli</p>
+            <p><strong>College:</strong> Bakolia Government College</p>
+            <p><strong>Blood Group:</strong> B+</p>
+            <p><strong>Mobile:</strong> 1300043883</p>
+        </div>
+
+        <div class="card">
+            <h2>Hafsa Ahmed Tisha</h2>
+            <p><strong>Address:</strong> Durgarampur, Bancharampur, Brahmanbaria</p>
+            <p><strong>College:</strong> Adhyapak Abdul Majid College</p>
+            <p><strong>Blood Group:</strong> AB+</p>
+            <p><strong>Mobile:</strong> Hidden</p>
+        </div>
+
+        <div class="card">
+            <h2>Pragga Labani Barua</h2>
+            <p><strong>Address:</strong> Patiya, Chattogram</p>
+            <p><strong>College:</strong> Chittagong College</p>
+            <p><strong>Blood Group:</strong> O+</p>
+            <p><strong>Mobile:</strong> Hidden</p>
+        </div>
+
+        <div class="card">
+            <h2>Jannatul Mauya Mahi</h2>
+            <p><strong>Address:</strong> Akmal Ali Road, Navy Hospital Gate, Oboshor Vobon</p>
+            <p><strong>College:</strong> Bangladesh Nou Bahini School and College</p>
+            <p><strong>Blood Group:</strong> A+</p>
+            <p><strong>Mobile:</strong> Hidden</p>
+        </div>
+
+        <div class="card">
+            <h2>Tahira Binte Motiur</h2>
+            <p><strong>Address:</strong> Chorshihari, Ishwargonj, Mymensingh</p>
+            <p><strong>College:</strong> Shahid Syed Nazrul Islam College, Mymensingh</p>
+            <p><strong>Blood Group:</strong> O+</p>
+            <p><strong>Mobile:</strong> Hidden</p>
+        </div>
+
+        <div class="card">
+            <h2>Montaha Alam</h2>
+            <p><strong>Address:</strong> Bibirhat, Kachabazar, Panchlaish, Chattogram</p>
+            <p><strong>College:</strong> Chittagong College</p>
+            <p><strong>Blood Group:</strong> O+</p>
+            <p><strong>Mobile:</strong> Hidden</p>
+        </div>
+
+        <div class="card">
+            <h2>Md. Asifur Rahman Asif</h2>
+            <p><strong>Address:</strong> Vill- Singpara, Post- Salandar, Upazila-Thakurgaon Sadar, District- Thakurgaon</p>
+            <p><strong>College:</strong> Rangpur Govt. College</p>
+            <p><strong>Blood Group:</strong> A+</p>
+            <p><strong>Mobile:</strong> 1314283031</p>
+        </div>
+
+        <div class="card">
+            <h2>Mubashira Rahman Mim</h2>
+            <p><strong>Address:</strong> Dinajpur</p>
+            <p><strong>College:</strong> Dinajpur Govt. College</p>
+            <p><strong>Blood Group:</strong> AB+</p>
+            <p><strong>Mobile:</strong> Hidden</p>
+        </div>
+
+        <div class="card">
+            <h2>Nusrat Jahan Mim</h2>
+            <p><strong>Address:</strong> Madhupur, Tangail</p>
+            <p><strong>College:</strong> Madhupur Shahid Smrity Higher Secondary School</p>
+            <p><strong>Blood Group:</strong> A+</p>
+            <p><strong>Mobile:</strong> Hidden</p>
+        </div>
+
+        <div class="card">
+            <h2>Rashid Shabab Shuvo</h2>
+            <p><strong>Address:</strong> Green View R/A, Nayabajar, Chattogram</p>
+            <p><strong>College:</strong> Chittagong Port College</p>
+            <p><strong>Blood Group:</strong> O+</p>
+            <p><strong>Mobile:</strong> 1686929716</p>
+        </div>
+
+        <div class="card">
+            <h2>Rahat Bin Jahangir (Rijvi)</h2>
+            <p><strong>Address:</strong> Haidchakia, Fatickchari, Chattogram</p>
+            <p><strong>College:</strong> Mohipal Government College, Feni</p>
+            <p><strong>Blood Group:</strong> B+</p>
+            <p><strong>Mobile:</strong> 1816007130</p>
+        </div>
+
+        <div class="card">
+            <h2>Md Abdush Shahid</h2>
+            <p><strong>Address:</strong> Pabna</p>
+            <p><strong>College:</strong> Shahid Government Bulbul College, Pabna</p>
+            <p><strong>Blood Group:</strong> AB+</p>
+            <p><strong>Mobile:</strong> 1960045990</p>
+        </div>
+
+        <div class="card">
+            <h2>Mrittika Chowdhury</h2>
+            <p><strong>Address:</strong> Niranjan Master's House, Uttar Dewanpur, Raozan, Chattogram</p>
+            <p><strong>College:</strong> Govt Hazi Mohammod Mohsin College, Chattogram</p>
+            <p><strong>Blood Group:</strong> A+</p>
+            <p><strong>Mobile:</strong> Hidden</p>
+        </div>
+
+        <div class="card">
+            <h2>ইসতিয়ার আহমেদ</h2>
+            <p><strong>Address:</strong> শিবগঞ্জ</p>
+            <p><strong>College:</strong> শহীদ এ. এইচ. এম. কামারুজ্জামান সরকারি ডিগ্রি কলেজ</p>
+            <p><strong>Blood Group:</strong> B(+ve)</p>
+            <p><strong>Mobile:</strong> 1886784462</p>
+        </div>
+
+        <div class="card">
+            <h2>Afsana Enam Chowdhury</h2>
+            <p><strong>Address:</strong> Village: Farhadabad, P.O: Nur Ali Mear Hat, P.S: Hathazari, District: Chittagong</p>
+            <p><strong>College:</strong> Chittagong Govt. Women's College</p>
+            <p><strong>Blood Group:</strong> O+</p>
+            <p><strong>Mobile:</strong> Hidden</p>
+        </div>
+
+        <div class="card">
+            <h2>Shahrukh Ahmed</h2>
+            <p><strong>Address:</strong> Alukdia, Chuadanga</p>
+            <p><strong>College:</strong> Chuadanga Govt College</p>
+            <p><strong>Blood Group:</strong> A+</p>
+            <p><strong>Mobile:</strong> 1746071324</p>
+        </div>
+
+        <div class="card">
+            <h2>Sharif Uddin Bhuiyan</h2>
+            <p><strong>Address:</strong> Mamudpur, Raipura, Narsingdi</p>
+            <p><strong>College:</strong> Birsrestha Noor Mohammad Public College</p>
+            <p><strong>Blood Group:</strong> AB+</p>
+            <p><strong>Mobile:</strong> 1576488384</p>
+        </div>
+
+        <div class="card">
+            <h2>Fariha Jahan</h2>
+            <p><strong>Address:</strong> 1/3, Jubilee Ghat, Mymensingh Sadar, Mymensingh</p>
+            <p><strong>College:</strong> Agriculture University College, Mymensingh</p>
+            <p><strong>Blood Group:</strong> O+</p>
+            <p><strong>Mobile:</strong> Hidden</p>
+        </div>
+
+        <div class="card">
+            <h2>Jahin Jaher</h2>
+            <p><strong>Address:</strong> 389/3/B West Shewrapara, Mirpur, Dhaka - 1216</p>
+            <p><strong>College:</strong> Shaheed Bir Uttam LT. Anwar Girls College</p>
+            <p><strong>Blood Group:</strong> B+</p>
+            <p><strong>Mobile:</strong> Hidden</p>
+        </div>
+
+        <div class="card">
+            <h2>Anika Mahazabin Pospita</h2>
+            <p><strong>Address:</strong> Brindabonpara, Bogura Sadar, Bogura</p>
+            <p><strong>College:</strong> Govt. Azizul Haque College, Bogura</p>
+            <p><strong>Blood Group:</strong> B+</p>
+            <p><strong>Mobile:</strong> Hidden</p>
+        </div>
+
+        <div class="card">
+            <h2>Naima Sultana</h2>
+            <p><strong>Address:</strong> Syed Shah Road, Chawkbazar, Chattogram</p>
+            <p><strong>College:</strong> Govt. City College, Ctg</p>
+            <p><strong>Blood Group:</strong> A+</p>
+            <p><strong>Mobile:</strong> Hidden</p>
+        </div>
+
+        <div class="card">
+            <h2>Nazifa Tanzim Samia</h2>
+            <p><strong>Address:</strong> Bailtali, Jafrabad, Chandanaish, Chattogram</p>
+            <p><strong>College:</strong> Government City College, Chattogram</p>
+            <p><strong>Blood Group:</strong> AB+</p>
+            <p><strong>Mobile:</strong> Hidden</p>
+        </div>
+
+        <div class="card">
+            <h2>Kashpria Sultana</h2>
+            <p><strong>Address:</strong> Kapasgola, Chawkbazar</p>
+            <p><strong>College:</strong> Chittagong College</p>
+            <p><strong>Blood Group:</strong> O+</p>
+            <p><strong>Mobile:</strong> Hidden</p>
+        </div>
+
+        <div class="card">
+            <h2>Shahriar Hossain Sami</h2>
+            <p><strong>Address:</strong> Demra, Dhaka</p>
+            <p><strong>College:</strong> DMRCA</p>
+            <p><strong>Blood Group:</strong> A+</p>
+            <p><strong>Mobile:</strong> 1568527434</p>
+        </div>
+
+        <div class="card">
+            <h2>Md. Abdur Rahim</h2>
+            <p><strong>Address:</strong> Vill: Azimnagar, P.O: Bhandersharif, Upazila: Fatikchhari, District: Chattogram</p>
+            <p><strong>College:</strong> Hathazari College, Chattogram</p>
+            <p><strong>Blood Group:</strong> O+</p>
+            <p><strong>Mobile:</strong> 1839251364</p>
+        </div>
+
+        <div class="card">
+            <h2>Urbi Chowdhury</h2>
+            <p><strong>Address:</strong> Anandamohon Chowdhury Bari, South Kattali, Pahartali, Chattogram</p>
+            <p><strong>College:</strong> Chottogram Government Model School and College</p>
+            <p><strong>Blood Group:</strong> O+</p>
+            <p><strong>Mobile:</strong> Hidden</p>
+        </div>
+
+        <div class="card">
+            <h2>Kanta Dey</h2>
+            <p><strong>Address:</strong> Noapara, Raozan, Chittagong</p>
+            <p><strong>College:</strong> CUET School and College</p>
+            <p><strong>Blood Group:</strong> B+</p>
+            <p><strong>Mobile:</strong> Hidden</p>
+        </div>
+
+        <div class="card">
+            <h2>Mohammad Imtiaz Uddin Emon</h2>
+            <p><strong>Address:</strong> Vill: Azimnagar, P.O: Bhandersharif, Upazila: Fatikchhari, District: Chattogram</p>
+            <p><strong>College:</strong> Hathazari College, Chattogram</p>
+            <p><strong>Blood Group:</strong> O+</p>
+            <p><strong>Mobile:</strong> 1608943768</p>
+        </div>
+
+        <div class="card">
+            <h2>Sharat Mohajan</h2>
+            <p><strong>Address:</strong> Jamalkhan Lichubagan</p>
+            <p><strong>College:</strong> Govt Hazi Mohammod Mohsin College</p>
+            <p><strong>Blood Group:</strong> B+</p>
+            <p><strong>Mobile:</strong> 1881741387</p>
+        </div>
+
+        <div class="card">
+            <h2>Md Mehedi Hasan Joy</h2>
+            <p><strong>Address:</strong> Pukuria, Banskhali, Chittagong</p>
+            <p><strong>College:</strong> Bakalia Govt. College</p>
+            <p><strong>Blood Group:</strong> B+</p>
+            <p><strong>Mobile:</strong> 1580820176</p>
+        </div>
+
+        <div class="card">
+            <h2>MD ABU BOKKOR SIDDIK</h2>
+            <p><strong>Address:</strong> DHUBIL, RAIGANG, SIRAJGANJ</p>
+            <p><strong>College:</strong> ISLIAMIA COLLEGE, SIRAJGANJ</p>
+            <p><strong>Blood Group:</strong> A+</p>
+            <p><strong>Mobile:</strong> 1763971824</p>
+        </div>
+
+        <div class="card">
+            <h2>Rokaiya Akter Dola</h2>
+            <p><strong>Address:</strong> Paschim Sreepur, Munshirhat - 2262, Dhobaura, Mymensingh</p>
+            <p><strong>College:</strong> Govt. Ananda Mohan College, Mymensingh</p>
+            <p><strong>Blood Group:</strong> B+</p>
+            <p><strong>Mobile:</strong> Hidden</p>
+        </div>
+
+        <div class="card">
+            <h2>Abida Jannat</h2>
+            <p><strong>Address:</strong> Pakutia, Nagbari, Kalihati, Tangail</p>
+            <p><strong>College:</strong> Ghatail Cantonment Public School and College</p>
+            <p><strong>Blood Group:</strong> B(+)</p>
+            <p><strong>Mobile:</strong> Hidden</p>
+        </div>
+
+        <div class="card">
+            <h2>Tanmoy Chowdhury</h2>
+            <p><strong>Address:</strong> Coxsbazar</p>
+            <p><strong>College:</strong> Ispahani Public School and College</p>
+            <p><strong>Blood Group:</strong> A+</p>
+            <p><strong>Mobile:</strong> 1891582301</p>
+        </div>
+
+        <div class="card">
+            <h2>Afrin Antora</h2>
+            <p><strong>Address:</strong> Abir Tower, Post Office Para, Jashore</p>
+            <p><strong>College:</strong> Jashore Government Mohila College</p>
+            <p><strong>Blood Group:</strong> A+</p>
+            <p><strong>Mobile:</strong> Hidden</p>
+        </div>
+
+        <div class="card">
+            <h2>Nowrin Rahman</h2>
+            <p><strong>Address:</strong> 294, Ma Bhila, Gulbagh, Malibagh, Dhaka</p>
+            <p><strong>College:</strong> Siddheswari Girl's College</p>
+            <p><strong>Blood Group:</strong> B+</p>
+            <p><strong>Mobile:</strong> Hidden</p>
+        </div>
+
+        <div class="card">
+            <h2>Shishir Sheikh</h2>
+            <p><strong>Address:</strong> Haluaghat, Mymensingh</p>
+            <p><strong>College:</strong> Royal Media College, Mymensingh</p>
+            <p><strong>Blood Group:</strong> A+</p>
+            <p><strong>Mobile:</strong> 1576534912</p>
+        </div>
+
+        <div class="card">
+            <h2>Hridika Das</h2>
+            <p><strong>Address:</strong> 332/1 East Nakhalpara, Tejgaon, Dhaka</p>
+            <p><strong>College:</strong> B.A.F. Shaheen College Dhaka</p>
+            <p><strong>Blood Group:</strong> AB+</p>
+            <p><strong>Mobile:</strong> Hidden</p>
+        </div>
+    </div>
+
+    <script>
+        const searchInput = document.getElementById('searchInput');
+        const dataContainer = document.getElementById('dataContainer');
+        const cards = dataContainer.getElementsByClassName('card');
+
+        searchInput.addEventListener('keyup', function() {
+            const searchTerm = searchInput.value.toLowerCase();
+            Array.from(cards).forEach(card => {
+                const name = card.getElementsByTagName('h2')[0].innerText.toLowerCase();
+                card.style.display = name.includes(searchTerm) ? 'block' : 'none';
+            });
+        });
+    </script>
+
+</body>
+</html>

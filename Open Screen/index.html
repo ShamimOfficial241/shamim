@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intro Design</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Courier New', monospace;
+            overflow: hidden;
+            background: linear-gradient(270deg, #000428, #004e92, #00c6ff, #0072ff); /* Initial gradient */
+            background-size: 400% 400%; /* For smooth animation */
+            animation: gradientAnimation 10s ease infinite; /* Animation for gradient */
+        }
+
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .cyberpunk-card {
+            width: 300px; /* Reduced card size */
+            padding: 20px;
+            background: #222; /* Dark background for the card */
+            border-radius: 10px;
+            color: #00ffcc;
+            border: 3px solid #ff00ff;
+            text-align: center;
+            animation: glitch 2s infinite alternate;
+            position: relative;
+            box-shadow: 0 0 30px #00ffcc, 0 0 60px #ff00ff;
+        }
+
+        h1, h2, p {
+            text-shadow: 0 0 10px #ff00ff, 0 0 20px #00ffcc;
+        }
+
+        @keyframes glitch {
+            0% { transform: rotate(0); }
+            25% { transform: skew(2deg, 2deg); }
+            50% { transform: skew(-2deg, -2deg); }
+            100% { transform: rotate(0); }
+        }
+
+        .cyberpunk-card h1 {
+            margin: 10px 0;
+            font-size: 24px; /* Slightly smaller font */
+            color: #00ff00;
+        }
+
+        .cyberpunk-card h2 {
+            margin: 5px 0;
+            font-size: 16px; /* Slightly smaller font */
+            color: #ff00ff;
+        }
+
+        .cyberpunk-card p {
+            color: #00ffcc;
+            font-size: 14px; /* Slightly smaller font */
+        }
+    </style>
+</head>
+<body>
+    <div class="cyberpunk-card">
+        <h1>App Developer</h1>
+        <h2>MD Faisal Ahmed Shamim</h2>
+        <p>FST-12, Session 2020-2021</p>
+        <p>Chattogram Veterinary & Animal Sciences University</p>
+        <p>Govt. Hazi Muhammad Mohsin College 2020</p>
+        <p>01567893306</p>
+        
+    </div>
+</body>
+</html>

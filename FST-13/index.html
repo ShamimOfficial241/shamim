@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Database</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, #ffffff, #00ff99);
+            color: #333;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .search-container {
+            margin-bottom: 20px;
+        }
+
+        .search-container input {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            width: 300px;
+            font-size: 16px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 20px;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .neon-text {
+            color: #00b300;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .info {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Search by name..." onkeyup="filterCards()">
+    </div>
+
+    <div class="container" id="cardContainer">
+        <div class="card">
+            <h2 class="neon-text">Ancon Kumar Sarkar</h2>
+            <div class="info">Roll: 22/01<br>Reg: 3949</div>
+        </div>
+        <div class="card">
+            <h2 class="neon-text">Kazi Md. Rubayet Al Rali</h2>
+            <div class="info">Roll: 22/02<br>Reg: 3951</div>
+        </div>
+        <div class="card">
+            <h2 class="neon-text">Rubayet Alam Ruba</h2>
+            <div class="info">Roll: 22/03<br>Reg: 3952</div>
+        </div>
+        <div class="card">
+            <h2 class="neon-text">Upoma Chowdhury</h2>
+            <div class="info">Roll: 22/04<br>Reg: 3953</div>
+        </div>
+        <div class="card">
+            <h2 class="neon-text">Farha Tabassum</h2>
+            <div class="info">Roll: 22/05<br>Reg: 3954</div>
+        </div>
+        <div class="card">
+            <h2 class="neon-text">Anjuman Jahan Anonwa</h2>
+            <div class="info">Roll: 22/06<br>Reg: 3955</div>
+        </div>
+        <div class="card">
+            <h2 class="neon-text">Sadman Mahin</h2>
+            <div class="info">Roll: 22/07<br>Reg: 3956</div>
+        </div>
+        <div class="card">
+            <h2 class="neon-text">Md. Mahedi Hasan</h2>
+            <div class="info">Roll: 22/08<br>Reg: 3957</div>
+        </div>
+        <div class="card">
+            <h2 class="neon-text">Nalisa Binta Jafar</h2>
+            <div class="info">Roll: 22/09<br>Reg: 3958</div>
+        </div>
+        <div class="card">
+            <h2 class="neon-text">Mochammath Nusrat Sultana Mahia</h2>
+            <div class="info">Roll: 22/10<br>Reg: 3959</div>
+        </div>
+        <div class="card">
+            <h2 class="neon-text">Rahul Paul</h2>
+            <div class="info">Roll: 22/11<br>Reg: 3960</div>
+        </div>
+        <div class="card">
+            <h2 class="neon-text">Sajeeda Jissan Lamya</h2>
+            <div class="info">Roll: 22/12<br>Reg: 3963</div>
+        </div>
+        <div class="card">
+            <h2 class="neon-text">Nafisa Tabassum Raisa</h2>
+            <div class="info">Roll: 22/13<br>Reg: 3965</div>
+        </div>
+        <div class="card">
+            <h2 class="neon-text">Md. Najim Uddin Masum</h2>
+            <div class="info">Roll: 22/14<br>Reg: 3966</div>
+        </div>
+        <div class="card">
+            <h2 class="neon-text">Moriam Akther Tasmla</h2>
+            <div class="info">Roll: 22/15<br>Reg: 3967</div>
+        </div>
+        <div class="card">
+            <h2 class="neon-text">Md. Shihab</h2>
+            <div class="info">Roll: 22/16<br>Reg: 3968</div>
+        </div>
+        <div class="card">
+            <h2 class="neon-text">Mottakin Hossain Ehab</h2>
+            <div class="info">Roll: 22/17<br>Reg: 3969</div>
+        </div>
+        <div class="card">
+            <h2 class="neon-text">Mujahid Hossain</h2>
+            <div class="info">Roll: 22/18<br>Reg: 3970</div>
+        </div>
+        <div class="card">
+            <h2 class="neon-text">Shabrena Jahan Shama</h2>
+            <div class="info">Roll: 22/19<br>Reg: 3971</div>
+        </div>
+        <div class="card">
+            <h2 class="neon-text">Tonmoy Acherjee</h2>
+            <div class="info">Roll: 22/20<br>Reg: 3972</div>
+        </div>
+        <div class="card">
+            <h2 class="neon-text">Md. Masud Ilmas Tanser</h2>
+            <div class="info">Roll: 22/21<br>Reg: 3973</div>
+        </div>
+        <div class="card">
+            <h2 class="neon-text">Sujoy Das</h2>
+            <div class="info">Roll: 22/22<br>Reg: 3974</div>
+        </div>
+        <div class="card">
+            <h2 class="neon-text">Samia Islam Seba</h2>
+            <div class="info">Roll: 22/23<br>Reg: 3975</div>
+        </div>
+        <div class="card">
+            <h2 class="neon-text">Naila Mehjabin Saima</h2>
+            <div class="info">Roll: 22/24<br>Reg: 3977</div>
+        </div>
+        <div class="card">
+            <h2 class="neon-text">Nandita Paul</h2>
+            <div class="info">Roll: 22/25<br>Reg: 3978</div>
+        </div>
+        <div class="card">
+            <h2 class="neon-text">Afia Fahmida</h2>
+            <div class="info">Roll: 22/26<br>Reg: 3981</div>
+        </div>
+        <div class="card">
+            <h2 class="neon-text">Pritha Chowdhury</h2>
+            <div class="info">Roll: 22/27<br>Reg: 3982</div>
+        </div>
+        <div class="card">
+            <h2 class="neon-text">Hossain Mohammad Refat</h2>
+            <div class="info">Roll: 22/28<br>Reg: 3983</div>
+        </div>
+        <div class="card">
+            <h2 class="neon-text">Priyanka Paul</h2>
+            <div class="info">Roll: 22/29<br>Reg: 3984</div>
+        </div>
+        <div class="card">
+            <h2 class="neon-text">Sidratul Muntaha</h2>
+            <div class="info">Roll: 22/30<br>Reg: 3985</div>
+        </div>
+        <div class="card">
+            <h2 class="neon-text">Md. Abdullah Al Mahin</h2>
+            <div class="info">Roll: 22/31<br>Reg: 3986</div>
+        </div>
+        <div class="card">
+            <h2 class="neon-text">Mst. Jubaida Akter Mim</h2>
+            <div class="info">Roll: 22/32<br>Reg: 3987</div>
+        </div>
+        <div class="card">
+            <h2 class="neon-text">Nilima Sulana</h2>
+            <div class="info">Roll: 22/33<br>Reg: 3988</div>
+        </div>
+        <div class="card">
+            <h2 class="neon-text">Meheroon Nassa Falguni</h2>
+            <div class="info">Roll: 22/34<br>Reg: 3989</div>
+        </div>
+        <div class="card">
+            <h2 class="neon-text">Nawatul Afroze</h2>
+            <div class="info">Roll: 22/35<br>Reg: 3990</div>
+        </div>
+        <div class="card">
+            <h2 class="neon-text">Israth Jahan Juthy</h2>
+            <div class="info">Roll: 22/36<br>Reg: 3991</div>
+        </div>
+        <div class="card">
+            <h2 class="neon-text">Khondokar Rahul Ahmed Nabab</h2>
+            <div class="info">Roll: 22/37<br>Reg: 3992</div>
+        </div>
+        <div class="card">
+            <h2 class="neon-text">Md. Mridul</h2>
+            <div class="info">Roll: 22/38<br>Reg: 3993</div>
+        </div>
+        <div class="card">
+            <h2 class="neon-text">Kamrunnahar</h2>
+            <div class="info">Roll: 22/39<br>Reg: 3994</div>
+        </div>
+        <div class="card">
+            <h2 class="neon-text">Rifah Anjum Mity</h2>
+            <div class="info">Roll: 22/40<br>Reg: 3995</div>
+        </div>
+        <div class="card">
+            <h2 class="neon-text">Ishwak Bintay Mahbub</h2>
+            <div class="info">Roll: 22/41<br>Reg: 3998</div>
+        </div>
+        <div class="card">
+            <h2 class="neon-text">Mohammad ljajul Hoque Chowdhury</h2>
+            <div class="info">Roll: 22/42<br>Reg: 3999</div>
+        </div>
+        <div class="card">
+            <h2 class="neon-text">Khadeza Akter</h2>
+            <div class="info">Roll: 22/43<br>Reg: 4000</div>
+        </div>
+        <div class="card">
+            <h2 class="neon-text">Ayasha Akter Rani</h2>
+            <div class="info">Roll: 22/44<br>Reg: 4002</div>
+        </div>
+        <div class="card">
+            <h2 class="neon-text">Zubayer Ahmed Shuvo</h2>
+            <div class="info">Roll: 22/45<br>Reg: 4004</div>
+        </div>
+        <div class="card">
+            <h2 class="neon-text">Md. Muntasir Rahman Mahi</h2>
+            <div class="info">Roll: 22/46<br>Reg: 4005</div>
+        </div>
+        <div class="card">
+            <h2 class="neon-text">Ifiekhar Hossain</h2>
+            <div class="info">Roll: 22/47<br>Reg: 4006</div>
+        </div>
+        <div class="card">
+            <h2 class="neon-text">Tausif Afroj</h2>
+            <div class="info">Roll: 22/48<br>Reg: 4007</div>
+        </div>
+        <div class="card">
+            <h2 class="neon-text">Md. Wahiduzzaman</h2>
+            <div class="info">Roll: 22/49<br>Reg: 4008</div>
+        </div>
+        <div class="card">
+            <h2 class="neon-text">Samanta Hoque Nilima</h2>
+            <div class="info">Roll: 22/50<br>Reg: 4009</div>
+        </div>
+        <div class="card">
+            <h2 class="neon-text">Md. Shajid Gani Shawon</h2>
+            <div class="info">Roll: 22/51<br>Reg: 4010</div>
+        </div>
+        <div class="card">
+            <h2 class="neon-text">Istiak Ahmed Chowdhury Nabil</h2>
+            <div class="info">Roll: 22/52<br>Reg: 4011</div>
+        </div>
+        <div class="card">
+            <h2 class="neon-text">Shawoana Tasnim</h2>
+            <div class="info">Roll: 22/53<br>Reg: 4013</div>
+        </div>
+        <div class="card">
+            <h2 class="neon-text">Morshedul Islam Mojumder</h2>
+            <div class="info">Roll: 22/54<br>Reg: 4014</div>
+        </div>
+        <div class="card">
+            <h2 class="neon-text">Arpita Bhattacharjee</h2>
+            <div class="info">Roll: 22/55<br>Reg: 4015</div>
+        </div>
+        <div class="card">
+            <h2 class="neon-text">Adrita Das</h2>
+            <div class="info">Roll: 22/56<br>Reg: 4016</div>
+        </div>
+        <div class="card">
+            <h2 class="neon-text">Jannatul Nayem</h2>
+            <div class="info">Roll: 22/57<br>Reg: 4017</div>
+        </div>
+        <div class="card">
+            <h2 class="neon-text">Maisha Hasnath Bhuiyan</h2>
+            <div class="info">Roll: 22/58<br>Reg: 4018</div>
+        </div>
+        <div class="card">
+            <h2 class="neon-text">Yeasin Arafat Nilu</h2>
+            <div class="info">Roll: 22/59<br>Reg: 4019</div>
+        </div>
+        <div class="card">
+            <h2 class="neon-text">Md. Mottakin Hossain</h2>
+            <div class="info">Roll: 22/60<br>Reg: 4022</div>
+        </div>
+        <div class="card">
+            <h2 class="neon-text">Abhishek Chakravorty</h2>
+            <div class="info">Roll: 22/61<br>Reg: 4023</div>
+        </div>
+        <div class="card">
+            <h2 class="neon-text">Naimul Hasan Nahid</h2>
+            <div class="info">Roll: 21/101<br>Reg: 3659</div>
+        </div>
+        <div class="card">
+            <h2 class="neon-text">Md. Junayed</h2>
+            <div class="info">Roll: 21/103<br>Reg: 3674</div>
+        </div>
+        <div class="card">
+            <h2 class="neon-text">Farhad Faisal</h2>
+            <div class="info">Roll: 21/104<br>Reg: 3680</div>
+        </div>
+        <div class="card">
+            <h2 class="neon-text">Ratree Chowdhury</h2>
+            <div class="info">Roll: 21/105<br>Reg: 3691</div>
+        </div>
+        <div class="card">
+            <h2 class="neon-text">Md. Jummun Islam Jaber</h2>
+            <div class="info">Roll: 21/44<br>Reg: 3693</div>
+        </div>
+    </div>
+
+    <script>
+        function filterCards() {
+            const input = document.getElementById('searchInput').value.toLowerCase();
+            const cards = document.querySelectorAll('.card');
+
+            cards.forEach(card => {
+                const name = card.querySelector('.neon-text').textContent.toLowerCase();
+                if (name.includes(input)) {
+                    card.style.display = '';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
